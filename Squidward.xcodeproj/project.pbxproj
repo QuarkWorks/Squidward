@@ -10,6 +10,10 @@
 		7793C6BF1F6DBA8900A1D147 /* Squidward.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7793C6B51F6DBA8900A1D147 /* Squidward.framework */; };
 		7793C6D91F6DBB9900A1D147 /* Squidward.h in Headers */ = {isa = PBXBuildFile; fileRef = 7793C6D11F6DBB4300A1D147 /* Squidward.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7793C6DB1F6DBBCC00A1D147 /* SquidwardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6D41F6DBB4300A1D147 /* SquidwardTests.swift */; };
+		7793C6E01F6DBC9400A1D147 /* LayoutConstraintGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6DC1F6DBC9400A1D147 /* LayoutConstraintGroup.swift */; };
+		7793C6E11F6DBC9400A1D147 /* LayoutEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6DD1F6DBC9400A1D147 /* LayoutEdgeAnchors.swift */; };
+		7793C6E21F6DBC9400A1D147 /* LayoutPointAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6DE1F6DBC9400A1D147 /* LayoutPointAnchors.swift */; };
+		7793C6E31F6DBC9400A1D147 /* LayoutSizeDemensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6DF1F6DBC9400A1D147 /* LayoutSizeDemensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		7793C6D11F6DBB4300A1D147 /* Squidward.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Squidward.h; sourceTree = "<group>"; };
 		7793C6D31F6DBB4300A1D147 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7793C6D41F6DBB4300A1D147 /* SquidwardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquidwardTests.swift; sourceTree = "<group>"; };
+		7793C6DC1F6DBC9400A1D147 /* LayoutConstraintGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraintGroup.swift; sourceTree = "<group>"; };
+		7793C6DD1F6DBC9400A1D147 /* LayoutEdgeAnchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEdgeAnchors.swift; sourceTree = "<group>"; };
+		7793C6DE1F6DBC9400A1D147 /* LayoutPointAnchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutPointAnchors.swift; sourceTree = "<group>"; };
+		7793C6DF1F6DBC9400A1D147 /* LayoutSizeDemensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutSizeDemensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,10 @@
 			isa = PBXGroup;
 			children = (
 				7793C6D01F6DBB4300A1D147 /* Info.plist */,
+				7793C6DC1F6DBC9400A1D147 /* LayoutConstraintGroup.swift */,
+				7793C6DD1F6DBC9400A1D147 /* LayoutEdgeAnchors.swift */,
+				7793C6DE1F6DBC9400A1D147 /* LayoutPointAnchors.swift */,
+				7793C6DF1F6DBC9400A1D147 /* LayoutSizeDemensions.swift */,
 				7793C6D11F6DBB4300A1D147 /* Squidward.h */,
 			);
 			path = Source;
@@ -148,6 +160,7 @@
 				TargetAttributes = {
 					7793C6B41F6DBA8900A1D147 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					7793C6BD1F6DBA8900A1D147 = {
@@ -196,6 +209,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7793C6E01F6DBC9400A1D147 /* LayoutConstraintGroup.swift in Sources */,
+				7793C6E21F6DBC9400A1D147 /* LayoutPointAnchors.swift in Sources */,
+				7793C6E11F6DBC9400A1D147 /* LayoutEdgeAnchors.swift in Sources */,
+				7793C6E31F6DBC9400A1D147 /* LayoutSizeDemensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +339,7 @@
 		7793C6CA1F6DBA8900A1D147 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -333,6 +351,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.quarkworks.Squidward;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -340,6 +359,7 @@
 		7793C6CB1F6DBA8900A1D147 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -358,6 +378,7 @@
 		7793C6CD1F6DBA8900A1D147 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quarkworks.SquidwardTests;
@@ -369,6 +390,7 @@
 		7793C6CE1F6DBA8900A1D147 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quarkworks.SquidwardTests;
@@ -396,6 +418,7 @@
 				7793C6CB1F6DBA8900A1D147 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7793C6CC1F6DBA8900A1D147 /* Build configuration list for PBXNativeTarget "SquidwardTests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +427,7 @@
 				7793C6CE1F6DBA8900A1D147 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
