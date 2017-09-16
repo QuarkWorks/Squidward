@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7793C6BF1F6DBA8900A1D147 /* Squidward.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7793C6B51F6DBA8900A1D147 /* Squidward.framework */; };
-		7793C6C41F6DBA8900A1D147 /* SquidwardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6C31F6DBA8900A1D147 /* SquidwardTests.swift */; };
-		7793C6C61F6DBA8900A1D147 /* Squidward.h in Headers */ = {isa = PBXBuildFile; fileRef = 7793C6B81F6DBA8900A1D147 /* Squidward.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7793C6D91F6DBB9900A1D147 /* Squidward.h in Headers */ = {isa = PBXBuildFile; fileRef = 7793C6D11F6DBB4300A1D147 /* Squidward.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7793C6DB1F6DBBCC00A1D147 /* SquidwardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6D41F6DBB4300A1D147 /* SquidwardTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +24,11 @@
 
 /* Begin PBXFileReference section */
 		7793C6B51F6DBA8900A1D147 /* Squidward.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Squidward.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7793C6B81F6DBA8900A1D147 /* Squidward.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Squidward.h; sourceTree = "<group>"; };
-		7793C6B91F6DBA8900A1D147 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7793C6BE1F6DBA8900A1D147 /* SquidwardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquidwardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7793C6C31F6DBA8900A1D147 /* SquidwardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquidwardTests.swift; sourceTree = "<group>"; };
-		7793C6C51F6DBA8900A1D147 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7793C6D01F6DBB4300A1D147 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7793C6D11F6DBB4300A1D147 /* Squidward.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Squidward.h; sourceTree = "<group>"; };
+		7793C6D31F6DBB4300A1D147 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7793C6D41F6DBB4300A1D147 /* SquidwardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquidwardTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +53,8 @@
 		7793C6AB1F6DBA8900A1D147 = {
 			isa = PBXGroup;
 			children = (
-				7793C6B71F6DBA8900A1D147 /* Squidward */,
-				7793C6C21F6DBA8900A1D147 /* SquidwardTests */,
+				7793C6CF1F6DBB4300A1D147 /* Source */,
+				7793C6D21F6DBB4300A1D147 /* Tests */,
 				7793C6B61F6DBA8900A1D147 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,22 +68,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7793C6B71F6DBA8900A1D147 /* Squidward */ = {
+		7793C6CF1F6DBB4300A1D147 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				7793C6B81F6DBA8900A1D147 /* Squidward.h */,
-				7793C6B91F6DBA8900A1D147 /* Info.plist */,
+				7793C6D01F6DBB4300A1D147 /* Info.plist */,
+				7793C6D11F6DBB4300A1D147 /* Squidward.h */,
 			);
-			path = Squidward;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		7793C6C21F6DBA8900A1D147 /* SquidwardTests */ = {
+		7793C6D21F6DBB4300A1D147 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				7793C6C31F6DBA8900A1D147 /* SquidwardTests.swift */,
-				7793C6C51F6DBA8900A1D147 /* Info.plist */,
+				7793C6D31F6DBB4300A1D147 /* Info.plist */,
+				7793C6D41F6DBB4300A1D147 /* SquidwardTests.swift */,
 			);
-			path = SquidwardTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,7 +93,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7793C6C61F6DBA8900A1D147 /* Squidward.h in Headers */,
+				7793C6D91F6DBB9900A1D147 /* Squidward.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7793C6C41F6DBA8900A1D147 /* SquidwardTests.swift in Sources */,
+				7793C6DB1F6DBBCC00A1D147 /* SquidwardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +327,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Squidward/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quarkworks.Squidward;
@@ -345,7 +345,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Squidward/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quarkworks.Squidward;
@@ -358,7 +358,7 @@
 		7793C6CD1F6DBA8900A1D147 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SquidwardTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quarkworks.SquidwardTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -369,7 +369,7 @@
 		7793C6CE1F6DBA8900A1D147 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SquidwardTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quarkworks.SquidwardTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
