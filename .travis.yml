@@ -3,3 +3,5 @@ xcode_project: Squidward.xcodeproj
 xcode_schema: SquidwardTests
 osx_image: xcode8.3
 
+notifications:
+  email: false
