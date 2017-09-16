@@ -1,3 +1,5 @@
-language objective-c
+language: objective-c
 xcode_project: Squidward.xcodeproj
 xcode_schema: SquidwardTests
+osx_image: xcode8.3
+
