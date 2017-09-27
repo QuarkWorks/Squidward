@@ -5,7 +5,7 @@
 Squidward is a iOS framework that reduces the plumbing required for creating constraints in code using auto layout. The api is to match the current anchor system as much as possible so the learning curve is small and the magic is minimal. Here are the main use cases to help you get started.
 
 
-### All Edges
+### Edge Anchors
 ```
 // From
 NSLayoutConstraint.activate([
@@ -22,7 +22,7 @@ NSLayoutConstraint.activate([
 ])
 ```
 
-### Center and Size
+### Center and Size Anchors
 ```
 // From
 NSLayoutConstraint.activate([
@@ -40,7 +40,7 @@ NSLayoutConstraint.activate([
 ])
 ```
 
-### Assignment and Priority
+### Assignment and Priority within an Activate Statement
 ```
 // From
 var leftConstraint: NSLayoutConstraint! = view.leftAnchor.constraint(equalTo: superView.leftAnchor)
@@ -57,7 +57,7 @@ NSLayoutConstraint.activate([
 ])
 ```
 
-### Corners
+### Specific Corner Anchors
 ```
 // From
 NSLayoutConstraint.activate([
@@ -71,7 +71,7 @@ NSLayoutConstraint.activate([
 ])
 ```
 
-### Specific Edges
+### Specific Edge Anchors
 ```        
 // From
 NSLayoutConstraint.activate([
