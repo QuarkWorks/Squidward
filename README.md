@@ -6,7 +6,7 @@ Squidward is a iOS framework that reduces the plumbing required for creating con
 
 
 ### Edge Anchors
-```
+```swift
 // From
 NSLayoutConstraint.activate([
     view.topAnchor.constraint(equalTo: superView.topAnchor, constant: 10),
@@ -23,7 +23,7 @@ NSLayoutConstraint.activate([
 ```
 
 ### Center and Size Anchors
-```
+```swift
 // From
 NSLayoutConstraint.activate([
     view.centerXAnchor.constraint(equalTo: superView.centerXAnchor, constant: 10),
@@ -41,7 +41,7 @@ NSLayoutConstraint.activate([
 ```
 
 ### Assignment and Priority within an Activate Statement
-```
+```swift
 // From
 var leftConstraint: NSLayoutConstraint! = view.leftAnchor.constraint(equalTo: superView.leftAnchor)
 leftConstraint.priority = UILayoutPriorityDefaultLow
@@ -58,7 +58,7 @@ NSLayoutConstraint.activate([
 ```
 
 ### Specific Corner Anchors
-```
+```swift
 // From
 NSLayoutConstraint.activate([
         view.leftAnchor.constraint(equalTo: superView.rightAnchor),
@@ -72,7 +72,7 @@ NSLayoutConstraint.activate([
 ```
 
 ### Specific Edge Anchors
-```        
+```swift
 // From
 NSLayoutConstraint.activate([
     view.leftAnchor.constraint(equalTo: superView.leftAnchor),
