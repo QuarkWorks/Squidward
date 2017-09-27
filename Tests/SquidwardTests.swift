@@ -36,9 +36,8 @@ class SquidwardTests: XCTestCase {
         superView = UIView()
         view = UIView()
 
-        superView.translatesAutoresizingMaskIntoConstraints = false
-        view.translatesAutoresizingMaskIntoConstraints = false
-
+        [superView, view].forEach { $0?.translatesAutoresizingMaskIntoConstraints = false }
+    
         superView.addSubview(view)
     }
     
