@@ -17,8 +17,8 @@ NSLayoutConstraint.activate([
 
 // To
 NSLayoutConstraint.activate([
-    view.edgeAnchors.constraint(equalTo: superView.edgeAnchors, 
-    insets: UIEdgeInsets(top: 10, left: 20, bottom: 30, right: 40))
+    view.edgeAnchors.constraint(equalTo: superView.edgeAnchors,
+        insets: UIEdgeInsets(top: 10, left: 20, bottom: 30, right: 40))
 ])
 ```
 
