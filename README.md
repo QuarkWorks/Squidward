@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/QuarkWorks/Squidward.svg?branch=master)](https://travis-ci.org/QuarkWorks/Squidward)
 
-Squidward is a iOS framework that reduces the plumbing required for creating constraints in code using auto layout. The api is to match the current anchor system as much as possible so the learning curve is small and the magic is minimal. Here are the main use cases to help you get started.
+Squidward is an iOS framework that reduces the plumbing required for creating constraints in code using auto layout. The api is to match the current anchor system as much as possible so the learning curve is small and the magic is minimal. Here are the main use cases to help you get started.
 
 
 ### Edge Anchors
