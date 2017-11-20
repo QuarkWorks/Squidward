@@ -23,29 +23,45 @@
 
 import UIKit
 
-public class LayoutEdgeAnchors {
+/// Backwards compatable version of NSDirectionalEdgeInsets
+public struct DirectionalEdgeInsets {
+    
+    /// The top constant
+    public var top: CGFloat
+    
+    /// The leading constant
+    public var leading: CGFloat
+    
+    /// The bottom constant
+    public var bottom: CGFloat
+    
+    /// The trailing constant
+    public var trailing: CGFloat
+}
 
+public class LayoutDirectionalEdgeAnchors {
+    
     /// The top anchor.
     public let top: NSLayoutYAxisAnchor
-
-    /// The left anchor.
-    public let left: NSLayoutXAxisAnchor
-
+    
+    /// The leading anchor.
+    public let leading: NSLayoutXAxisAnchor
+    
     /// The bottom anchor.
     public let bottom: NSLayoutYAxisAnchor
-
-    /// The right anchor
-    public let right: NSLayoutXAxisAnchor
     
-    internal init(top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor,
-                bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor) {
+    /// The trailing anchor
+    public let trailing: NSLayoutXAxisAnchor
+    
+    internal init(top: NSLayoutYAxisAnchor, leading: NSLayoutXAxisAnchor,
+                  bottom: NSLayoutYAxisAnchor, trailing: NSLayoutXAxisAnchor) {
         
         self.top = top
-        self.left = left
+        self.leading = leading
         self.bottom = bottom
-        self.right = right
+        self.trailing = trailing
     }
-
+    
     /**
      Constrains a list of provided edges to another view's anchors with an inset.
      At least one edge must be constrained.
@@ -56,134 +72,135 @@ public class LayoutEdgeAnchors {
      
      - returns: The newly constructed set of deactivated layout edge constraints.
      */
-    public func constraint(edges: Set<RectEdge> = RectEdge.all, equalTo anchors: LayoutEdgeAnchors, inset: CGFloat = 0.0) -> LayoutEdgeConstraints {
-        return constraint(edges: edges, equalTo: anchors, insets: UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset))
+    public func constraint(edges: Set<DirectionalRectEdge> = DirectionalRectEdge.all, equalTo anchors: LayoutDirectionalEdgeAnchors, inset: CGFloat = 0.0) -> LayoutDirectionalEdgeConstraints {
+        return constraint(edges: edges, equalTo: anchors, insets: DirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset))
     }
-
+    
     /**
      Constrains a list of provided edges to another view's anchors with an offset.
      At least one edge must be constrained.
-
+     
      - parameter edges: The edges that should be constrained.
      - parameter anchors: The the target anchors to be constrained to.
      - parameter offset: An offset that is applied to all the provided edges.
-
+     
      - returns: The newly constructed set of deactivated layout edge constraints.
      */
-    public func constraint(edges: Set<RectEdge> = RectEdge.all, equalTo anchors: LayoutEdgeAnchors, offset: UIOffset) -> LayoutEdgeConstraints {
-        return constraint(edges: edges, equalTo: anchors, insets: UIEdgeInsets(top: offset.vertical, left: offset.horizontal,
-                                                                bottom: -offset.vertical, right: -offset.horizontal))
+    public func constraint(edges: Set<DirectionalRectEdge> = DirectionalRectEdge.all, equalTo anchors: LayoutDirectionalEdgeAnchors, offset: UIOffset) -> LayoutDirectionalEdgeConstraints {
+        return constraint(edges: edges, equalTo: anchors, insets: DirectionalEdgeInsets(top: offset.vertical, leading: offset.horizontal,
+                                                                               bottom: -offset.vertical, trailing: -offset.horizontal))
     }
-
+    
     /**
      Constrains a list of provided edges to another view's anchors with insets.
      At least one edge must be constrained.
-
+     
      - parameter edges: The edges that should be constrained.
      - parameter anchors: The the target anchors to be constrained to.
      - parameter insets: Insets that is applied to all the provided edges.
-
+     
      - returns: The newly constructed set of deactivated layout edge constraints.
      */
-    public func constraint(edges: Set<RectEdge> = RectEdge.all, equalTo anchors: LayoutEdgeAnchors, insets: UIEdgeInsets) -> LayoutEdgeConstraints {
-
+    public func constraint(edges: Set<DirectionalRectEdge> = DirectionalRectEdge.all, equalTo anchors: LayoutDirectionalEdgeAnchors, insets: DirectionalEdgeInsets) -> LayoutDirectionalEdgeConstraints {
+        
         guard !edges.isEmpty else {
             fatalError("At least one edge must be constrained")
         }
-
-        let topConstraint = edges.contains(.top) ? top.constraint(equalTo: anchors.top, constant: insets.top) : nil
-        let leftConstraint = edges.contains(.left) ? left.constraint(equalTo: anchors.left, constant: insets.left) : nil
-        let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(equalTo: anchors.bottom, constant: insets.bottom) : nil
-        let rightConstraint = edges.contains(.right) ? right.constraint(equalTo: anchors.right, constant: insets.right) : nil
         
-        return LayoutEdgeConstraints(top: topConstraint, left: leftConstraint, bottom: bottomConstraint, right: rightConstraint)
+        let topConstraint = edges.contains(.top) ? top.constraint(equalTo: anchors.top, constant: insets.top) : nil
+        let leadingConstraint = edges.contains(.leading) ? leading.constraint(equalTo: anchors.leading, constant: insets.leading) : nil
+        let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(equalTo: anchors.bottom, constant: insets.bottom) : nil
+        let trailingConstraint = edges.contains(.trailing) ? trailing.constraint(equalTo: anchors.trailing, constant: insets.trailing) : nil
+        
+        return LayoutDirectionalEdgeConstraints(top: topConstraint, leading: leadingConstraint, bottom: bottomConstraint, trailing: trailingConstraint)
     }
 }
 
 public extension LayoutGuide {
-
+    
     /// A group of edge layout anchors that can be used to create LayoutEdgeConstraints
-    public var edgeAnchors: LayoutEdgeAnchors {
-        return LayoutEdgeAnchors(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
+    public var directionalEdgeAnchors: LayoutDirectionalEdgeAnchors {
+        return LayoutDirectionalEdgeAnchors(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
     }
 }
 
-public class LayoutEdgeConstraints {
-
+public class LayoutDirectionalEdgeConstraints {
+    
     /// The top constraint.
     public let top: NSLayoutConstraint?
-
+    
     /// The left constraint.
-    public let left: NSLayoutConstraint?
-
+    public let leading: NSLayoutConstraint?
+    
     /// The bottom constraint.
     public let bottom: NSLayoutConstraint?
-
+    
     /// The right constraint.
-    public let right: NSLayoutConstraint?
-
-    internal init(top: NSLayoutConstraint?, left: NSLayoutConstraint?, bottom: NSLayoutConstraint?, right: NSLayoutConstraint?) {
+    public let trailing: NSLayoutConstraint?
+    
+    internal init(top: NSLayoutConstraint?, leading: NSLayoutConstraint?, bottom: NSLayoutConstraint?, trailing: NSLayoutConstraint?) {
         self.top = top
         self.bottom = bottom
-        self.left = left
-        self.right = right
+        self.leading = leading
+        self.trailing = trailing
     }
-
+    
     /**
      Inset constrained edges to new value.
-
+     
      - parameter edges: The edges that the inset should be applied to.
      - parameter inset: The inset to apply.
-    */
-    public func inset(edges: UIRectEdge = .all, _ inset: CGFloat) {
-        if edges.contains(.left) {
-            left?.constant = inset
+     */
+    public func inset(edges: Set<DirectionalRectEdge> = DirectionalRectEdge.all, _ inset: CGFloat) {
+        if edges.contains(.leading) {
+            leading?.constant = inset
         }
-
+        
         if edges.contains(.top) {
             top?.constant = inset
         }
-
-        if edges.contains(.right) {
-            right?.constant = -inset
+        
+        if edges.contains(.trailing) {
+            trailing?.constant = -inset
         }
-
+        
         if edges.contains(.bottom) {
             bottom?.constant = -inset
         }
     }
-
+    
     /**
      Offset constrained edges to a new value.
      
      - parameter offset: The offset to apply.
-    */
+     */
     public func offset(_ offset: UIOffset) {
-        insets = UIEdgeInsets(top: -offset.vertical, left: -offset.horizontal,
-                       bottom: offset.vertical, right: offset.vertical)
+        insets = DirectionalEdgeInsets(top: -offset.vertical, leading: -offset.horizontal,
+                              bottom: offset.vertical, trailing: offset.vertical)
     }
-
+    
     /// The agregation of all constants of the constraints
-    public var insets: UIEdgeInsets {
+    public var insets: DirectionalEdgeInsets {
         get {
-            return UIEdgeInsets(top: top?.constant ?? 0,
-                                left: left?.constant ?? 0,
+            return DirectionalEdgeInsets(top: top?.constant ?? 0,
+                                leading: leading?.constant ?? 0,
                                 bottom: bottom?.constant ?? 0,
-                                right: right?.constant ?? 0)
+                                trailing: trailing?.constant ?? 0)
         }
-
+        
         set {
             top?.constant = newValue.top
-            left?.constant = newValue.left
+            leading?.constant = newValue.leading
             bottom?.constant = -newValue.bottom
-            right?.constant = -newValue.right
+            trailing?.constant = -newValue.trailing
         }
     }
 }
 
-extension LayoutEdgeConstraints: LayoutConstraintGroup {
-
+extension LayoutDirectionalEdgeConstraints: LayoutConstraintGroup {
+    
     public var constraints: [NSLayoutConstraint] {
-        return [top, left, bottom, right].flatMap {$0}
+        return [top, leading, bottom, trailing].flatMap {$0}
     }
 }
+

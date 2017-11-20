@@ -82,11 +82,11 @@ public class LayoutSizeDimensions {
     }
 }
 
-public extension UIView {
+public extension LayoutGuide {
 
     /// A group of size layout dimensions that can be used to create LayoutSizeConstraints
     public var sizeAnchors: LayoutSizeDimensions {
-        return .init(width: widthAnchor, height: heightAnchor)
+        return LayoutSizeDimensions(width: widthAnchor, height: heightAnchor)
     }
 }
 

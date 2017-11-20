@@ -25,56 +25,6 @@ import UIKit
 
 public class LayoutPointAnchors {
 
-    /// Enum for specifying a single rect corner
-    public enum RectEdge {
-        case top, left, bottom, right
-
-        func xAxisAnchor(for view: UIView) -> NSLayoutXAxisAnchor {
-            switch self {
-            case .top, .bottom:
-                return view.centerXAnchor
-            case .left:
-                return view.leftAnchor
-            case .right:
-                return view.rightAnchor
-            }
-        }
-
-        func yAxisAnchor(for view: UIView) -> NSLayoutYAxisAnchor {
-            switch self {
-            case .left, .right:
-                return view.centerYAnchor
-            case .top:
-                return view.topAnchor
-            case .bottom:
-                return view.bottomAnchor
-            }
-        }
-    }
-
-    /// Enum for specifying a single rect edge
-    public enum RectCorner {
-        case topLeft, topRight, bottomLeft, bottomRight
-
-        func xAxisAnchor(for view: UIView) -> NSLayoutXAxisAnchor {
-            switch self {
-            case .topLeft, .bottomLeft:
-                return view.leftAnchor
-            case .topRight, .bottomRight:
-                return view.rightAnchor
-            }
-        }
-
-        func yAxisAnchor(for view: UIView) -> NSLayoutYAxisAnchor {
-            switch self {
-            case .topLeft, .topRight:
-                return view.topAnchor
-            case .bottomLeft, .bottomRight:
-                return view.bottomAnchor
-            }
-        }
-    }
-
     /// The xAsis layout anchor
     public let xAxis: NSLayoutXAxisAnchor
 
@@ -96,16 +46,16 @@ public class LayoutPointAnchors {
 
     */
     public func constraint(eqaulTo anchors: LayoutPointAnchors, offset: UIOffset = .zero) -> LayoutPointConstraints {
-        return .init(xAxis: xAxis.constraint(equalTo: anchors.xAxis, constant: offset.horizontal),
+        return LayoutPointConstraints(xAxis: xAxis.constraint(equalTo: anchors.xAxis, constant: offset.horizontal),
                      yAxis: yAxis.constraint(equalTo: anchors.yAxis, constant: offset.vertical))
     }
 }
 
-public extension UIView {
+public extension LayoutGuide {
 
     /// A group of center layout anchors that can be used to create LayoutCenterConstraints
     public var centerAnchors: LayoutPointAnchors {
-        return .init(xAxis: centerXAnchor, yAxis: centerYAnchor)
+        return LayoutPointAnchors(xAxis: centerXAnchor, yAxis: centerYAnchor)
     }
 
     /**
@@ -114,9 +64,22 @@ public extension UIView {
      - parameter edge: The edge to dictate what point anchors are returned.
      - returns: The newly constructed layout point anchors.
      */
-    public func centerAnchors(for edge: LayoutPointAnchors.RectEdge) -> LayoutPointAnchors {
+    public func centerAnchors(for edge: RectEdge) -> LayoutPointAnchors {
 
 
+        return LayoutPointAnchors(xAxis: edge.xAxisAnchor(for: self),
+                                  yAxis: edge.yAxisAnchor(for: self))
+    }
+    
+    /**
+     Returns point anchors for the center of a specified directional edge.
+     
+     - parameter edge: The edge to dictate what point anchors are returned.
+     - returns: The newly constructed layout point anchors.
+     */
+    public func centerAnchors(for edge: DirectionalRectEdge) -> LayoutPointAnchors {
+        
+        
         return LayoutPointAnchors(xAxis: edge.xAxisAnchor(for: self),
                                   yAxis: edge.yAxisAnchor(for: self))
     }
@@ -127,8 +90,20 @@ public extension UIView {
      - parameter corner: The corner to dicate what point anchros are returned.
      - returns: The newly constructed layout point anchors
      */
-    public func cornerAnchors(for corner: LayoutPointAnchors.RectCorner) -> LayoutPointAnchors {
+    public func cornerAnchors(for corner: RectCorner) -> LayoutPointAnchors {
 
+        return LayoutPointAnchors(xAxis: corner.xAxisAnchor(for: self),
+                                  yAxis: corner.yAxisAnchor(for: self))
+    }
+    
+    /**
+     Returns point anchors for the specified directional corner.
+     
+     - parameter corner: The corner to dicate what point anchros are returned.
+     - returns: The newly constructed layout point anchors
+     */
+    public func cornerAnchors(for corner: DirectionalRectEdge) -> LayoutPointAnchors {
+        
         return LayoutPointAnchors(xAxis: corner.xAxisAnchor(for: self),
                                   yAxis: corner.yAxisAnchor(for: self))
     }
@@ -150,7 +125,7 @@ public final class LayoutPointConstraints {
     /// A constant that can be applied the the x and y constraints
     public var constant: UIOffset {
         get {
-            return .init(horizontal: xAxis.constant, vertical: yAxis.constant)
+            return UIOffset(horizontal: xAxis.constant, vertical: yAxis.constant)
         }
 
         set {
