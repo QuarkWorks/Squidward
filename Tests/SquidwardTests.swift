@@ -23,7 +23,7 @@
 
 import XCTest
 import UIKit
-@testable import Squidward
+import Squidward
 
 class SquidwardTests: XCTestCase {
 
@@ -52,10 +52,23 @@ class SquidwardTests: XCTestCase {
         let insets = UIEdgeInsets(top: 10, left: 20, bottom: 30, right: 40)
 
         NSLayoutConstraint.activate([
-            view.edgeAnchors.constraint(edges: .all, equalTo: superView.edgeAnchors, insets: insets)
+            view.edgeAnchors.constraint(equalTo: superView.edgeAnchors, insets: insets)
                 .assign(to: &constraint)
         ])
 
+        XCTAssertEqual(insets, constraint.insets)
+    }
+    
+    func testDirectionalEdgeConstraints() {
+        
+        var constraint: LayoutDirectionalEdgeConstraints!
+        let insets = DirectionalEdgeInsets(top: 10, leading: 20, bottom: 30, trailing: 40)
+        
+        NSLayoutConstraint.activate([
+            view.directionalEdgeAnchors.constraint(equalTo: superView.directionalEdgeAnchors, insets: insets)
+                .assign(to: &constraint)
+            ])
+        
         XCTAssertEqual(insets, constraint.insets)
     }
 
