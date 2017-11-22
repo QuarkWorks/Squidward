@@ -85,3 +85,20 @@ NSLayoutConstraint.activate([
     view.edgeAnchors.constraint(edges: [.left, .top, .bottom], equalTo: superView.edgeAnchors)
 ])
 ```
+
+### Directional Edge Anchors
+```swift
+// From
+NSLayoutConstraint.activate([
+    view.topAnchor.constraint(equalTo: superView.topAnchor, constant: 10),
+    view.leadingAnchor.constraint(equalTo: superView.leftAnchor, constant: 20),
+    view.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: -30),
+    view.trailingAnchor.constraint(equalTo: superView.rightAnchor, constant: -40)
+])
+
+// To
+NSLayoutConstraint.activate([
+    view.directionalEdgeAnchors.constraint(equalTo: superView.edgeAnchors,
+        insets: DirectionalEdgeInsets(top: 10, leading: 20, bottom: 30, trailing: 40))
+])
+```
