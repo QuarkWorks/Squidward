@@ -102,7 +102,7 @@ public extension LayoutGuide {
      - parameter corner: The corner to dicate what point anchros are returned.
      - returns: The newly constructed layout point anchors
      */
-    public func cornerAnchors(for corner: DirectionalRectEdge) -> LayoutPointAnchors {
+    public func cornerAnchors(for corner: DirectionalRectCorner) -> LayoutPointAnchors {
         
         return LayoutPointAnchors(xAxis: corner.xAxisAnchor(for: self),
                                   yAxis: corner.yAxisAnchor(for: self))
