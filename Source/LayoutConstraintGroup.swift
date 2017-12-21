@@ -24,7 +24,7 @@
 import UIKit
 
 /// Any object that can store a group of constraints
-public protocol LayoutConstraintGroup {
+public protocol LayoutConstraintGroup: class {
 
     /// The constraints that are grouped together.
     var constraints: [NSLayoutConstraint] {get}
@@ -63,7 +63,7 @@ public extension LayoutConstraintGroup {
      - returns: The deactivated constraints.
      */
     @discardableResult
-    public func prioritize(_ priority: UILayoutPriority) -> Self {
+    public func prioritize(at priority: UILayoutPriority) -> Self {
         constraints.forEach {$0.priority = priority}
         return self
     }

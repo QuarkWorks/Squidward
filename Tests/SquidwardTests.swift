@@ -52,11 +52,11 @@ class SquidwardTests: XCTestCase {
         let insets = UIEdgeInsets(top: 10, left: 20, bottom: 30, right: 40)
 
         NSLayoutConstraint.activate([
-            view.edgeAnchors.constraint(equalTo: superView.edgeAnchors, insets: insets)
+            view.edgeAnchors.constraint(equalTo: superView.edgeAnchors, constant: insets)
                 .assign(to: &constraint)
         ])
 
-        XCTAssertEqual(insets, constraint.insets)
+        XCTAssertEqual(insets, constraint.constant)
     }
     
     func testDirectionalEdgeConstraints() {
@@ -65,11 +65,11 @@ class SquidwardTests: XCTestCase {
         let insets = DirectionalEdgeInsets(top: 10, leading: 20, bottom: 30, trailing: 40)
         
         NSLayoutConstraint.activate([
-            view.directionalEdgeAnchors.constraint(equalTo: superView.directionalEdgeAnchors, insets: insets)
+            view.directionalEdgeAnchors.constraint(equalTo: superView.directionalEdgeAnchors, constant: insets)
                 .assign(to: &constraint)
             ])
         
-        XCTAssertEqual(insets, constraint.insets)
+        XCTAssertEqual(insets, constraint.constant)
     }
 
     func testSizeConstraints() {
@@ -89,9 +89,45 @@ class SquidwardTests: XCTestCase {
         let offset = UIOffset(horizontal: 10, vertical: 20)
 
         NSLayoutConstraint.activate([
-            view.centerAnchors.constraint(eqaulTo: superView.centerAnchors, offset: offset).assign(to: &constraint)
+            view.centerAnchors.constraint(eqaulTo: superView.centerAnchors, constant: offset).assign(to: &constraint)
         ])
 
         XCTAssertEqual(offset, constraint.constant)
+    }
+    
+    func testHorizontalConstraints() {
+        
+        var constraint: LayoutHorizontalConstraints!
+        let insets = HorizontalInsets(left: 10, right: 20)
+        
+        NSLayoutConstraint.activate([
+            view.horizontalAnchors.constraint(equalTo: superView.horizontalAnchors, constant: insets).assign(to: &constraint)
+        ])
+        
+        XCTAssertEqual(insets, constraint.constant)
+    }
+    
+    func testDirectionalHorizontalConstraints() {
+        
+        var constraint: LayoutDirectionalHorizonalConstraints!
+        let insets = DirectionalHorizontalInsets(leading: 10, trailing: 20)
+        
+        NSLayoutConstraint.activate([
+            view.directionalHorizontalAnchors.constraint(equalTo: superView.directionalHorizontalAnchors, constant: insets).assign(to: &constraint)
+        ])
+        
+        XCTAssertEqual(insets, constraint.constant)
+    }
+    
+    func testVerticalConstraints() {
+        
+        var constraint: LayoutVerticalConstraints!
+        let insets = VerticalInsets(top: 10, bottom: 20)
+        
+        NSLayoutConstraint.activate([
+            view.verticalAnchors.constraint(equalTo: superView.verticalAnchors, constant: insets).assign(to: &constraint)
+        ])
+        
+        XCTAssertEqual(insets, constraint.constant)
     }
 }

@@ -59,10 +59,10 @@ public class LayoutSizeDimensions {
      - returns: The newly constructed set of deactivated layout size constraints.
      */
     public func constraint(equalTo anchor: NSLayoutDimension, multiplier: CGFloat = 1.0,
-                           offset: UIOffset = .zero) -> LayoutSizeConstraints {
+                           constant: UIOffset = .zero) -> LayoutSizeConstraints {
         return LayoutSizeConstraints(
-            width: width.constraint(equalTo: anchor, multiplier: multiplier, constant: offset.horizontal),
-            height: height.constraint(equalTo: anchor, multiplier: multiplier, constant: offset.vertical))
+            width: width.constraint(equalTo: anchor, multiplier: multiplier, constant: constant.horizontal),
+            height: height.constraint(equalTo: anchor, multiplier: multiplier, constant: constant.vertical))
     }
 
     /**
@@ -75,10 +75,10 @@ public class LayoutSizeDimensions {
      - returns: The newly constructed set of deactivated layout size constraints.
      */
     public func constraint(equalTo anchors: LayoutSizeDimensions, multiplier: CGFloat = 1.0,
-                           offset: UIOffset = .zero) -> LayoutSizeConstraints {
+                           constant: UIOffset = .zero) -> LayoutSizeConstraints {
         return LayoutSizeConstraints(
-            width: width.constraint(equalTo: anchors.width, multiplier: multiplier, constant: offset.horizontal),
-            height: height.constraint(equalTo: anchors.height, multiplier: multiplier, constant: offset.vertical))
+            width: width.constraint(equalTo: anchors.width, multiplier: multiplier, constant: constant.horizontal),
+            height: height.constraint(equalTo: anchors.height, multiplier: multiplier, constant: constant.vertical))
     }
 }
 

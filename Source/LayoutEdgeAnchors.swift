@@ -52,12 +52,12 @@ public class LayoutEdgeAnchors {
      
      - parameter edges: The edges that should be constrained.
      - parameter anchors: The the target anchors to be constrained to.
-     - parameter inset: An inset that is applied to all the provided edges.
+     - parameter constant: An inset that is applied to all the provided edges.
      
      - returns: The newly constructed set of deactivated layout edge constraints.
      */
-    public func constraint(edges: Set<RectEdge> = RectEdge.all, equalTo anchors: LayoutEdgeAnchors, inset: CGFloat = 0.0) -> LayoutEdgeConstraints {
-        return constraint(edges: edges, equalTo: anchors, insets: UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset))
+    public func constraint(edges: Set<RectEdge> = RectEdge.all, equalTo anchors: LayoutEdgeAnchors, constant: CGFloat = 0.0) -> LayoutEdgeConstraints {
+        return constraint(edges: edges, equalTo: anchors, constant: UIEdgeInsets(top: constant, left: constant, bottom: constant, right: constant))
     }
 
     /**
@@ -66,13 +66,13 @@ public class LayoutEdgeAnchors {
 
      - parameter edges: The edges that should be constrained.
      - parameter anchors: The the target anchors to be constrained to.
-     - parameter offset: An offset that is applied to all the provided edges.
+     - parameter constant: An offset that is applied to all the provided edges.
 
      - returns: The newly constructed set of deactivated layout edge constraints.
      */
-    public func constraint(edges: Set<RectEdge> = RectEdge.all, equalTo anchors: LayoutEdgeAnchors, offset: UIOffset) -> LayoutEdgeConstraints {
-        return constraint(edges: edges, equalTo: anchors, insets: UIEdgeInsets(top: offset.vertical, left: offset.horizontal,
-                                                                bottom: -offset.vertical, right: -offset.horizontal))
+    public func constraint(edges: Set<RectEdge> = RectEdge.all, equalTo anchors: LayoutEdgeAnchors, constant: UIOffset) -> LayoutEdgeConstraints {
+        return constraint(edges: edges, equalTo: anchors, constant: UIEdgeInsets(top: constant.vertical, left: constant.horizontal,
+                                                                bottom: -constant.vertical, right: -constant.horizontal))
     }
 
     /**
@@ -81,20 +81,20 @@ public class LayoutEdgeAnchors {
 
      - parameter edges: The edges that should be constrained.
      - parameter anchors: The the target anchors to be constrained to.
-     - parameter insets: Insets that is applied to all the provided edges.
+     - parameter constant: Insets that is applied to all the provided edges.
 
      - returns: The newly constructed set of deactivated layout edge constraints.
      */
-    public func constraint(edges: Set<RectEdge> = RectEdge.all, equalTo anchors: LayoutEdgeAnchors, insets: UIEdgeInsets) -> LayoutEdgeConstraints {
+    public func constraint(edges: Set<RectEdge> = RectEdge.all, equalTo anchors: LayoutEdgeAnchors, constant: UIEdgeInsets) -> LayoutEdgeConstraints {
 
         guard !edges.isEmpty else {
             fatalError("At least one edge must be constrained")
         }
 
-        let topConstraint = edges.contains(.top) ? top.constraint(equalTo: anchors.top, constant: insets.top) : nil
-        let leftConstraint = edges.contains(.left) ? left.constraint(equalTo: anchors.left, constant: insets.left) : nil
-        let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(equalTo: anchors.bottom, constant: insets.bottom) : nil
-        let rightConstraint = edges.contains(.right) ? right.constraint(equalTo: anchors.right, constant: insets.right) : nil
+        let topConstraint = edges.contains(.top) ? top.constraint(equalTo: anchors.top, constant: constant.top) : nil
+        let leftConstraint = edges.contains(.left) ? left.constraint(equalTo: anchors.left, constant: constant.left) : nil
+        let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(equalTo: anchors.bottom, constant: constant.bottom) : nil
+        let rightConstraint = edges.contains(.right) ? right.constraint(equalTo: anchors.right, constant: constant.right) : nil
         
         return LayoutEdgeConstraints(top: topConstraint, left: leftConstraint, bottom: bottomConstraint, right: rightConstraint)
     }
@@ -158,13 +158,13 @@ public class LayoutEdgeConstraints {
      
      - parameter offset: The offset to apply.
     */
-    public func offset(_ offset: UIOffset) {
-        insets = UIEdgeInsets(top: -offset.vertical, left: -offset.horizontal,
+    public func offset(by offset: UIOffset) {
+        constant = UIEdgeInsets(top: -offset.vertical, left: -offset.horizontal,
                        bottom: offset.vertical, right: offset.vertical)
     }
 
     /// The agregation of all constants of the constraints
-    public var insets: UIEdgeInsets {
+    public var constant: UIEdgeInsets {
         get {
             return UIEdgeInsets(top: top?.constant ?? 0,
                                 left: left?.constant ?? 0,

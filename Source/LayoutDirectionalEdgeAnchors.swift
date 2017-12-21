@@ -52,12 +52,12 @@ public class LayoutDirectionalEdgeAnchors {
      
      - parameter edges: The edges that should be constrained.
      - parameter anchors: The the target anchors to be constrained to.
-     - parameter inset: An inset that is applied to all the provided edges.
-     
+     - parameter constant: An inset that is applied to all the provided edges.
+
      - returns: The newly constructed set of deactivated layout edge constraints.
      */
-    public func constraint(edges: Set<DirectionalRectEdge> = DirectionalRectEdge.all, equalTo anchors: LayoutDirectionalEdgeAnchors, inset: CGFloat = 0.0) -> LayoutDirectionalEdgeConstraints {
-        return constraint(edges: edges, equalTo: anchors, insets: DirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset))
+    public func constraint(edges: Set<DirectionalRectEdge> = DirectionalRectEdge.all, equalTo anchors: LayoutDirectionalEdgeAnchors, constant: CGFloat = 0.0) -> LayoutDirectionalEdgeConstraints {
+        return constraint(edges: edges, equalTo: anchors, constant: DirectionalEdgeInsets(top: constant, leading: constant, bottom: constant, trailing: constant))
     }
     
     /**
@@ -66,13 +66,13 @@ public class LayoutDirectionalEdgeAnchors {
      
      - parameter edges: The edges that should be constrained.
      - parameter anchors: The the target anchors to be constrained to.
-     - parameter offset: An offset that is applied to all the provided edges.
-     
+     - parameter constant: An offset that is applied to all the provided edges.
+
      - returns: The newly constructed set of deactivated layout edge constraints.
      */
-    public func constraint(edges: Set<DirectionalRectEdge> = DirectionalRectEdge.all, equalTo anchors: LayoutDirectionalEdgeAnchors, offset: UIOffset) -> LayoutDirectionalEdgeConstraints {
-        return constraint(edges: edges, equalTo: anchors, insets: DirectionalEdgeInsets(top: offset.vertical, leading: offset.horizontal,
-                                                                               bottom: -offset.vertical, trailing: -offset.horizontal))
+    public func constraint(edges: Set<DirectionalRectEdge> = DirectionalRectEdge.all, equalTo anchors: LayoutDirectionalEdgeAnchors, constant: UIOffset) -> LayoutDirectionalEdgeConstraints {
+        return constraint(edges: edges, equalTo: anchors, constant: DirectionalEdgeInsets(top: constant.vertical, leading: constant.horizontal,
+                                                                               bottom: -constant.vertical, trailing: -constant.horizontal))
     }
     
     /**
@@ -81,20 +81,20 @@ public class LayoutDirectionalEdgeAnchors {
      
      - parameter edges: The edges that should be constrained.
      - parameter anchors: The the target anchors to be constrained to.
-     - parameter insets: Insets that is applied to all the provided edges.
-     
+     - parameter constant: Insets that is applied to all the provided edges.
+
      - returns: The newly constructed set of deactivated layout edge constraints.
      */
-    public func constraint(edges: Set<DirectionalRectEdge> = DirectionalRectEdge.all, equalTo anchors: LayoutDirectionalEdgeAnchors, insets: DirectionalEdgeInsets) -> LayoutDirectionalEdgeConstraints {
+    public func constraint(edges: Set<DirectionalRectEdge> = DirectionalRectEdge.all, equalTo anchors: LayoutDirectionalEdgeAnchors, constant: DirectionalEdgeInsets) -> LayoutDirectionalEdgeConstraints {
         
         guard !edges.isEmpty else {
             fatalError("At least one edge must be constrained")
         }
         
-        let topConstraint = edges.contains(.top) ? top.constraint(equalTo: anchors.top, constant: insets.top) : nil
-        let leadingConstraint = edges.contains(.leading) ? leading.constraint(equalTo: anchors.leading, constant: insets.leading) : nil
-        let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(equalTo: anchors.bottom, constant: insets.bottom) : nil
-        let trailingConstraint = edges.contains(.trailing) ? trailing.constraint(equalTo: anchors.trailing, constant: insets.trailing) : nil
+        let topConstraint = edges.contains(.top) ? top.constraint(equalTo: anchors.top, constant: constant.top) : nil
+        let leadingConstraint = edges.contains(.leading) ? leading.constraint(equalTo: anchors.leading, constant: constant.leading) : nil
+        let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(equalTo: anchors.bottom, constant: constant.bottom) : nil
+        let trailingConstraint = edges.contains(.trailing) ? trailing.constraint(equalTo: anchors.trailing, constant: constant.trailing) : nil
         
         return LayoutDirectionalEdgeConstraints(top: topConstraint, leading: leadingConstraint, bottom: bottomConstraint, trailing: trailingConstraint)
     }
@@ -135,7 +135,7 @@ public class LayoutDirectionalEdgeConstraints {
      - parameter edges: The edges that the inset should be applied to.
      - parameter inset: The inset to apply.
      */
-    public func inset(edges: Set<DirectionalRectEdge> = DirectionalRectEdge.all, _ inset: CGFloat) {
+    public func inset(edges: Set<DirectionalRectEdge> = DirectionalRectEdge.all, by inset: CGFloat) {
         if edges.contains(.leading) {
             leading?.constant = inset
         }
@@ -158,13 +158,13 @@ public class LayoutDirectionalEdgeConstraints {
      
      - parameter offset: The offset to apply.
      */
-    public func offset(_ offset: UIOffset) {
-        insets = DirectionalEdgeInsets(top: -offset.vertical, leading: -offset.horizontal,
+    public func offset(by offset: UIOffset) {
+        constant = DirectionalEdgeInsets(top: -offset.vertical, leading: -offset.horizontal,
                               bottom: offset.vertical, trailing: offset.vertical)
     }
     
     /// The agregation of all constants of the constraints
-    public var insets: DirectionalEdgeInsets {
+    public var constant: DirectionalEdgeInsets {
         get {
             return DirectionalEdgeInsets(top: top?.constant ?? 0,
                                 leading: leading?.constant ?? 0,

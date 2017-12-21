@@ -23,7 +23,7 @@
 
 import UIKit
 
-public class LayoutPointAnchors {
+public final class LayoutPointAnchors {
 
     /// The xAsis layout anchor
     public let xAxis: NSLayoutXAxisAnchor
@@ -40,14 +40,14 @@ public class LayoutPointAnchors {
      Constrains to another view's anchors with an offset
      
      - parameter anchors: The the target anchors to be constrained to.
-     - parameter offset: An offset that is applied the both the x and y axis.
+     - parameter constant: An offset that is applied the both the x and y axis.
      
      - returns: The newly constructed set of deactivated layout center constraints.
 
     */
-    public func constraint(eqaulTo anchors: LayoutPointAnchors, offset: UIOffset = .zero) -> LayoutPointConstraints {
-        return LayoutPointConstraints(xAxis: xAxis.constraint(equalTo: anchors.xAxis, constant: offset.horizontal),
-                     yAxis: yAxis.constraint(equalTo: anchors.yAxis, constant: offset.vertical))
+    public func constraint(eqaulTo anchors: LayoutPointAnchors, constant: UIOffset = .zero) -> LayoutPointConstraints {
+        return LayoutPointConstraints(xAxis: xAxis.constraint(equalTo: anchors.xAxis, constant: constant.horizontal),
+                     yAxis: yAxis.constraint(equalTo: anchors.yAxis, constant: constant.vertical))
     }
 }
 
