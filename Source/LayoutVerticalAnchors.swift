@@ -34,13 +34,19 @@ public final class LayoutVerticalAnchors {
         self.bottom = bottom
     }
     
-    public func constraint(equalTo anchors: LayoutVerticalAnchors, constant: CGFloat = 0.0) -> LayoutVerticalConstraints {
-        return constraint(equalTo: anchors, constant: VerticalInsets(top: constant, bottom: constant))
-    }
-    
-    public func constraint(equalTo anchors: LayoutVerticalAnchors, constant: VerticalInsets) -> LayoutVerticalConstraints {
+    public func constraint(equalTo anchors: LayoutVerticalAnchors, constant: VerticalInsets = .zero) -> LayoutVerticalConstraints {
         return LayoutVerticalConstraints(top: top.constraint(equalTo: anchors.top, constant: constant.top),
                                         bottom: bottom.constraint(equalTo: anchors.bottom, constant: -constant.bottom))
+    }
+    
+    public func constraint(outsideOfOrEqualTo anchors: LayoutVerticalAnchors, constant: VerticalInsets = .zero) -> LayoutVerticalConstraints {
+        return LayoutVerticalConstraints(top: top.constraint(lessThanOrEqualTo: anchors.top, constant: constant.top),
+                                         bottom: bottom.constraint(greaterThanOrEqualTo: anchors.bottom, constant: -constant.bottom))
+    }
+    
+    public func constraint(insideOfOrEqualTo anchors: LayoutVerticalAnchors, constant: VerticalInsets = .zero) -> LayoutVerticalConstraints {
+        return LayoutVerticalConstraints(top: top.constraint(greaterThanOrEqualTo: anchors.top, constant: constant.top),
+                                         bottom: bottom.constraint(lessThanOrEqualTo: anchors.bottom, constant: -constant.bottom))
     }
 }
 

@@ -47,7 +47,7 @@ public final class LayoutPointAnchors {
     */
     public func constraint(eqaulTo anchors: LayoutPointAnchors, constant: UIOffset = .zero) -> LayoutPointConstraints {
         return LayoutPointConstraints(xAxis: xAxis.constraint(equalTo: anchors.xAxis, constant: constant.horizontal),
-                     yAxis: yAxis.constraint(equalTo: anchors.yAxis, constant: constant.vertical))
+                                      yAxis: yAxis.constraint(equalTo: anchors.yAxis, constant: constant.vertical))
     }
 }
 
@@ -57,55 +57,77 @@ public extension LayoutGuide {
     public var centerAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: centerXAnchor, yAxis: centerYAnchor)
     }
-
-    /**
-     Returns point anchors for the center of a specified edge.
-
-     - parameter edge: The edge to dictate what point anchors are returned.
-     - returns: The newly constructed layout point anchors.
-     */
-    public func centerAnchors(for edge: RectEdge) -> LayoutPointAnchors {
-
-
-        return LayoutPointAnchors(xAxis: edge.xAxisAnchor(for: self),
-                                  yAxis: edge.yAxisAnchor(for: self))
+    
+    /*
+        Rect Corner Anchors
+    */
+    
+    public var topLeftAnchors: LayoutPointAnchors {
+        return LayoutPointAnchors(xAxis: leftAnchor, yAxis: topAnchor)
     }
     
-    /**
-     Returns point anchors for the center of a specified directional edge.
-     
-     - parameter edge: The edge to dictate what point anchors are returned.
-     - returns: The newly constructed layout point anchors.
-     */
-    public func centerAnchors(for edge: DirectionalRectEdge) -> LayoutPointAnchors {
-        
-        
-        return LayoutPointAnchors(xAxis: edge.xAxisAnchor(for: self),
-                                  yAxis: edge.yAxisAnchor(for: self))
-    }
-
-    /**
-     Returns point anchors for the specified corner.
-
-     - parameter corner: The corner to dicate what point anchros are returned.
-     - returns: The newly constructed layout point anchors
-     */
-    public func cornerAnchors(for corner: RectCorner) -> LayoutPointAnchors {
-
-        return LayoutPointAnchors(xAxis: corner.xAxisAnchor(for: self),
-                                  yAxis: corner.yAxisAnchor(for: self))
+    public var topRightAnchors: LayoutPointAnchors {
+        return LayoutPointAnchors(xAxis: rightAnchor, yAxis: topAnchor)
     }
     
-    /**
-     Returns point anchors for the specified directional corner.
-     
-     - parameter corner: The corner to dicate what point anchros are returned.
-     - returns: The newly constructed layout point anchors
-     */
-    public func cornerAnchors(for corner: DirectionalRectCorner) -> LayoutPointAnchors {
-        
-        return LayoutPointAnchors(xAxis: corner.xAxisAnchor(for: self),
-                                  yAxis: corner.yAxisAnchor(for: self))
+    public var bottomLeftAnchors: LayoutPointAnchors {
+        return LayoutPointAnchors(xAxis: leftAnchor, yAxis: bottomAnchor)
+    }
+    
+    public var bottomRightAnchors: LayoutPointAnchors {
+        return LayoutPointAnchors(xAxis: rightAnchor, yAxis: bottomAnchor)
+    }
+    
+    /*
+     Directional Rect Corner Anchors
+    */
+    
+    public var topLeadingAnchors: LayoutPointAnchors {
+        return LayoutPointAnchors(xAxis: leadingAnchor, yAxis: topAnchor)
+    }
+    
+    public var topTrailingAnchors: LayoutPointAnchors {
+        return LayoutPointAnchors(xAxis: trailingAnchor, yAxis: topAnchor)
+    }
+    
+    public var bottomLeadingAnchors: LayoutPointAnchors {
+        return LayoutPointAnchors(xAxis: leadingAnchor, yAxis: bottomAnchor)
+    }
+    
+    public var bottomTrailingAnchors: LayoutPointAnchors {
+        return LayoutPointAnchors(xAxis: trailingAnchor, yAxis: bottomAnchor)
+    }
+    
+    /*
+     Rect Edge Anchors
+    */
+
+    public var centerLeftAnchors: LayoutPointAnchors {
+        return LayoutPointAnchors(xAxis: leftAnchor, yAxis: centerYAnchor)
+    }
+    
+    public var centerTopAnchors: LayoutPointAnchors {
+        return LayoutPointAnchors(xAxis: centerXAnchor, yAxis: topAnchor)
+    }
+    
+    public var centerRightAnchors: LayoutPointAnchors {
+        return LayoutPointAnchors(xAxis: rightAnchor, yAxis: centerYAnchor)
+    }
+    
+    public var centerBottomAnchors: LayoutPointAnchors {
+        return LayoutPointAnchors(xAxis: centerXAnchor, yAxis: bottomAnchor)
+    }
+
+    /*
+     Directional Edge Anchors
+    */
+    
+    public var centerLeadingAnchors: LayoutPointAnchors {
+        return LayoutPointAnchors(xAxis: leadingAnchor, yAxis: centerYAnchor)
+    }
+    
+    public var centerTrailingAnchors: LayoutPointAnchors {
+        return LayoutPointAnchors(xAxis: trailingAnchor, yAxis: centerYAnchor)
     }
 }
 

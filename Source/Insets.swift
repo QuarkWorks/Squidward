@@ -32,6 +32,20 @@ public struct DirectionalEdgeInsets: Equatable {
         self.trailing = trailing
     }
     
+    public init(horizontal: CGFloat, vertical: CGFloat) {
+        self.top = vertical
+        self.leading = horizontal
+        self.bottom = vertical
+        self.trailing = horizontal
+    }
+    
+    public init(all: CGFloat) {
+        self.top = all
+        self.leading = all
+        self.bottom = all
+        self.trailing = all
+    }
+    
     public static func ==(lhs: DirectionalEdgeInsets, rhs: DirectionalEdgeInsets) -> Bool {
         return lhs.top == rhs.top
             && lhs.leading == rhs.leading
@@ -52,6 +66,11 @@ public struct HorizontalInsets: Equatable {
         self.right = right
     }
     
+    public init(all: CGFloat) {
+        self.left = all
+        self.right = all
+    }
+    
     public static func ==(lhs: HorizontalInsets, rhs: HorizontalInsets) -> Bool {
         return lhs.left == rhs.left && lhs.right == lhs.right
     }
@@ -67,6 +86,11 @@ public struct DirectionalHorizontalInsets: Equatable {
     public init(leading: CGFloat, trailing: CGFloat) {
         self.leading = leading
         self.trailing = trailing
+    }
+    
+    public init(all: CGFloat) {
+        self.leading = all
+        self.trailing = all
     }
     
     public static func ==(lhs: DirectionalHorizontalInsets, rhs: DirectionalHorizontalInsets) -> Bool {
@@ -86,7 +110,44 @@ public struct VerticalInsets: Equatable {
         self.bottom = bottom
     }
     
+    public init(all: CGFloat) {
+        self.top = all
+        self.bottom = all
+    }
+    
     public static func ==(lhs: VerticalInsets, rhs: VerticalInsets) -> Bool {
         return lhs.top == rhs.top && lhs.bottom == lhs.bottom
+    }
+}
+
+public extension UIEdgeInsets {
+    
+    public init(horizontal: CGFloat, vertical: CGFloat) {
+        self.top = vertical
+        self.left = horizontal
+        self.bottom = vertical
+        self.right = horizontal
+    }
+    
+    public init(all: CGFloat) {
+        self.top = all
+        self.left = all
+        self.bottom = all
+        self.right = all
+    }
+}
+
+public extension CGSize {
+    
+    public init(all: CGFloat) {
+        self.width = all
+        self.height = all
+    }
+}
+public extension UIOffset {
+    
+    public init(all: CGFloat) {
+        self.horizontal = all
+        self.vertical = all
     }
 }

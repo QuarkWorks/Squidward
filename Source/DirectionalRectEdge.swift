@@ -21,34 +21,21 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
 import Foundation
 
-public protocol LayoutGuide {
-    var leadingAnchor: NSLayoutXAxisAnchor { get }
-    var trailingAnchor: NSLayoutXAxisAnchor { get }
-    var leftAnchor: NSLayoutXAxisAnchor { get }
-    var rightAnchor: NSLayoutXAxisAnchor { get }
-    var topAnchor: NSLayoutYAxisAnchor { get }
-    var bottomAnchor: NSLayoutYAxisAnchor { get }
-    var widthAnchor: NSLayoutDimension { get }
-    var heightAnchor: NSLayoutDimension { get }
-    var centerXAnchor: NSLayoutXAxisAnchor { get }
-    var centerYAnchor: NSLayoutYAxisAnchor { get }
-}
-
-extension UIView: LayoutGuide { }
-extension UILayoutGuide: LayoutGuide { }
-
-extension UIView {
+/// Localized version of UIRectEdge
+public struct DirectionalRectEdge: OptionSet {
     
-    /// A nil returning wrapper around `safeAreaLayoutGuide` for non iOS 11 builds
-    var safeAreaLayoutGuideWrapper: LayoutGuide? {
-        if #available(iOS 11.0, *) {
-            return safeAreaLayoutGuide
-        } else {
-            return nil
-        }
+    public let rawValue: UInt
+    
+    public static let top = DirectionalRectEdge(rawValue: 1 << 0)
+    public static let leading = DirectionalRectEdge(rawValue: 1 << 1)
+    public static let bottom = DirectionalRectEdge(rawValue: 1 << 2)
+    public static let trailing = DirectionalRectEdge(rawValue: 1 << 3)
+    
+    public static let all: DirectionalRectEdge = [.top, .leading, .bottom, .trailing]
+    
+    public init(rawValue: UInt) {
+        self.rawValue = rawValue
     }
 }
-

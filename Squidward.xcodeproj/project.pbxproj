@@ -10,7 +10,7 @@
 		7736E82F1FD7CFB10030979D /* LayoutVerticalAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736E82E1FD7CFB10030979D /* LayoutVerticalAnchors.swift */; };
 		7736E8311FD7D3FF0030979D /* LayoutHorizontalAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736E8301FD7D3FF0030979D /* LayoutHorizontalAnchors.swift */; };
 		777820051FC26F4F00C94C2C /* LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777820041FC26F4F00C94C2C /* LayoutGuide.swift */; };
-		777820071FC2741200C94C2C /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777820061FC2741200C94C2C /* Enums.swift */; };
+		777820071FC2741200C94C2C /* DirectionalRectEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777820061FC2741200C94C2C /* DirectionalRectEdge.swift */; };
 		777820091FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777820081FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift */; };
 		7793C6BF1F6DBA8900A1D147 /* Squidward.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7793C6B51F6DBA8900A1D147 /* Squidward.framework */; };
 		7793C6D91F6DBB9900A1D147 /* Squidward.h in Headers */ = {isa = PBXBuildFile; fileRef = 7793C6D11F6DBB4300A1D147 /* Squidward.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,7 +37,7 @@
 		7736E82E1FD7CFB10030979D /* LayoutVerticalAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutVerticalAnchors.swift; sourceTree = "<group>"; };
 		7736E8301FD7D3FF0030979D /* LayoutHorizontalAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutHorizontalAnchors.swift; sourceTree = "<group>"; };
 		777820041FC26F4F00C94C2C /* LayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutGuide.swift; sourceTree = "<group>"; };
-		777820061FC2741200C94C2C /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		777820061FC2741200C94C2C /* DirectionalRectEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalRectEdge.swift; sourceTree = "<group>"; };
 		777820081FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutDirectionalEdgeAnchors.swift; sourceTree = "<group>"; };
 		7793C6B51F6DBA8900A1D147 /* Squidward.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Squidward.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7793C6BE1F6DBA8900A1D147 /* SquidwardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquidwardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,7 +95,7 @@
 			children = (
 				7793C6D11F6DBB4300A1D147 /* Squidward.h */,
 				7793C6D01F6DBB4300A1D147 /* Info.plist */,
-				777820061FC2741200C94C2C /* Enums.swift */,
+				777820061FC2741200C94C2C /* DirectionalRectEdge.swift */,
 				77AAC1C01FD88A6C00A2F652 /* Insets.swift */,
 				7793C6DC1F6DBC9400A1D147 /* LayoutConstraintGroup.swift */,
 				777820041FC26F4F00C94C2C /* LayoutGuide.swift */,
@@ -240,7 +240,7 @@
 				7793C6E21F6DBC9400A1D147 /* LayoutPointAnchors.swift in Sources */,
 				777820091FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift in Sources */,
 				7793C6E11F6DBC9400A1D147 /* LayoutEdgeAnchors.swift in Sources */,
-				777820071FC2741200C94C2C /* Enums.swift in Sources */,
+				777820071FC2741200C94C2C /* DirectionalRectEdge.swift in Sources */,
 				7793C6E31F6DBC9400A1D147 /* LayoutSizeDemensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +388,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quarkworks.Squidward;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -409,6 +410,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quarkworks.Squidward;
 				PRODUCT_NAME = "$(TARGET_NAME)";

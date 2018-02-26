@@ -47,35 +47,6 @@ public class LayoutEdgeAnchors {
     }
 
     /**
-     Constrains a list of provided edges to another view's anchors with an inset.
-     At least one edge must be constrained.
-     
-     - parameter edges: The edges that should be constrained.
-     - parameter anchors: The the target anchors to be constrained to.
-     - parameter constant: An inset that is applied to all the provided edges.
-     
-     - returns: The newly constructed set of deactivated layout edge constraints.
-     */
-    public func constraint(edges: Set<RectEdge> = RectEdge.all, equalTo anchors: LayoutEdgeAnchors, constant: CGFloat = 0.0) -> LayoutEdgeConstraints {
-        return constraint(edges: edges, equalTo: anchors, constant: UIEdgeInsets(top: constant, left: constant, bottom: constant, right: constant))
-    }
-
-    /**
-     Constrains a list of provided edges to another view's anchors with an offset.
-     At least one edge must be constrained.
-
-     - parameter edges: The edges that should be constrained.
-     - parameter anchors: The the target anchors to be constrained to.
-     - parameter constant: An offset that is applied to all the provided edges.
-
-     - returns: The newly constructed set of deactivated layout edge constraints.
-     */
-    public func constraint(edges: Set<RectEdge> = RectEdge.all, equalTo anchors: LayoutEdgeAnchors, constant: UIOffset) -> LayoutEdgeConstraints {
-        return constraint(edges: edges, equalTo: anchors, constant: UIEdgeInsets(top: constant.vertical, left: constant.horizontal,
-                                                                bottom: -constant.vertical, right: -constant.horizontal))
-    }
-
-    /**
      Constrains a list of provided edges to another view's anchors with insets.
      At least one edge must be constrained.
 
@@ -85,7 +56,9 @@ public class LayoutEdgeAnchors {
 
      - returns: The newly constructed set of deactivated layout edge constraints.
      */
-    public func constraint(edges: Set<RectEdge> = RectEdge.all, equalTo anchors: LayoutEdgeAnchors, constant: UIEdgeInsets) -> LayoutEdgeConstraints {
+    public func constraint(edges: UIRectEdge = .all,
+                           equalTo anchors: LayoutEdgeAnchors,
+                           constant: UIEdgeInsets = .zero) -> LayoutEdgeConstraints {
 
         guard !edges.isEmpty else {
             fatalError("At least one edge must be constrained")
@@ -93,8 +66,40 @@ public class LayoutEdgeAnchors {
 
         let topConstraint = edges.contains(.top) ? top.constraint(equalTo: anchors.top, constant: constant.top) : nil
         let leftConstraint = edges.contains(.left) ? left.constraint(equalTo: anchors.left, constant: constant.left) : nil
-        let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(equalTo: anchors.bottom, constant: constant.bottom) : nil
-        let rightConstraint = edges.contains(.right) ? right.constraint(equalTo: anchors.right, constant: constant.right) : nil
+        let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(equalTo: anchors.bottom, constant: -constant.bottom) : nil
+        let rightConstraint = edges.contains(.right) ? right.constraint(equalTo: anchors.right, constant: -constant.right) : nil
+        
+        return LayoutEdgeConstraints(top: topConstraint, left: leftConstraint, bottom: bottomConstraint, right: rightConstraint)
+    }
+    
+    public func constraint(edges: UIRectEdge = .all,
+                           outsideOfOrEqualTo anchors: LayoutEdgeAnchors,
+                           constant: UIEdgeInsets = .zero) -> LayoutEdgeConstraints {
+        
+        guard !edges.isEmpty else {
+            fatalError("At least one edge must be constrained")
+        }
+        
+        let topConstraint = edges.contains(.top) ? top.constraint(lessThanOrEqualTo: anchors.top, constant: constant.top) : nil
+        let leftConstraint = edges.contains(.left) ? left.constraint(lessThanOrEqualTo: anchors.left, constant: constant.left) : nil
+        let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(greaterThanOrEqualTo: anchors.bottom, constant: -constant.bottom) : nil
+        let rightConstraint = edges.contains(.right) ? right.constraint(greaterThanOrEqualTo: anchors.right, constant: -constant.right) : nil
+        
+        return LayoutEdgeConstraints(top: topConstraint, left: leftConstraint, bottom: bottomConstraint, right: rightConstraint)
+    }
+    
+    public func constraint(edges: UIRectEdge = .all,
+                           insideOfOrEqualTo anchors: LayoutEdgeAnchors,
+                           constant: UIEdgeInsets = .zero) -> LayoutEdgeConstraints {
+        
+        guard !edges.isEmpty else {
+            fatalError("At least one edge must be constrained")
+        }
+        
+        let topConstraint = edges.contains(.top) ? top.constraint(greaterThanOrEqualTo: anchors.top, constant: constant.top) : nil
+        let leftConstraint = edges.contains(.left) ? left.constraint(greaterThanOrEqualTo: anchors.left, constant: constant.left) : nil
+        let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(lessThanOrEqualTo: anchors.bottom, constant: -constant.bottom) : nil
+        let rightConstraint = edges.contains(.right) ? right.constraint(lessThanOrEqualTo: anchors.right, constant: -constant.right) : nil
         
         return LayoutEdgeConstraints(top: topConstraint, left: leftConstraint, bottom: bottomConstraint, right: rightConstraint)
     }
@@ -129,47 +134,13 @@ public class LayoutEdgeConstraints {
         self.right = right
     }
 
-    /**
-     Inset constrained edges to new value.
-
-     - parameter edges: The edges that the inset should be applied to.
-     - parameter inset: The inset to apply.
-    */
-    public func inset(edges: UIRectEdge = .all, _ inset: CGFloat) {
-        if edges.contains(.left) {
-            left?.constant = inset
-        }
-
-        if edges.contains(.top) {
-            top?.constant = inset
-        }
-
-        if edges.contains(.right) {
-            right?.constant = -inset
-        }
-
-        if edges.contains(.bottom) {
-            bottom?.constant = -inset
-        }
-    }
-
-    /**
-     Offset constrained edges to a new value.
-     
-     - parameter offset: The offset to apply.
-    */
-    public func offset(by offset: UIOffset) {
-        constant = UIEdgeInsets(top: -offset.vertical, left: -offset.horizontal,
-                       bottom: offset.vertical, right: offset.vertical)
-    }
-
     /// The agregation of all constants of the constraints
     public var constant: UIEdgeInsets {
         get {
             return UIEdgeInsets(top: top?.constant ?? 0,
                                 left: left?.constant ?? 0,
-                                bottom: bottom?.constant ?? 0,
-                                right: right?.constant ?? 0)
+                                bottom: -(bottom?.constant ?? 0),
+                                right: -(right?.constant ?? 0))
         }
 
         set {

@@ -29,16 +29,17 @@ class SquidwardTests: XCTestCase {
 
     var superView: UIView!
     var view: UIView!
+    var otherView: UIView!
 
     override func setUp() {
         super.setUp()
 
         superView = UIView()
         view = UIView()
+        otherView = UIView()
 
-        [superView, view].forEach { $0?.translatesAutoresizingMaskIntoConstraints = false }
-
-        superView.addSubview(view)
+        [superView, view, otherView].forEach { $0?.translatesAutoresizingMaskIntoConstraints = false }
+        [view, otherView].forEach { superView.addSubview($0) }
     }
     
     override func tearDown() {
@@ -129,5 +130,33 @@ class SquidwardTests: XCTestCase {
         ])
         
         XCTAssertEqual(insets, constraint.constant)
+    }
+    
+    func testWrapContent() {
+        
+        let viewSize = CGSize(width: 100, height: 105)
+        let otherViewSize = CGSize(width: 110, height: 115)
+        
+        let viewInsets = UIEdgeInsets(horizontal: 5, vertical: 10)
+        let otherViewInsets = UIEdgeInsets(horizontal: 15, vertical: 20)
+        
+        NSLayoutConstraint.activate([
+            view.sizeAnchors.constraint(equalToConstant: viewSize),
+            otherView.sizeAnchors.constraint(equalToConstant: otherViewSize),
+            
+            view.edgeAnchors.constraint(insideOfOrEqualTo: superView.edgeAnchors, constant: viewInsets),
+            otherView.edgeAnchors.constraint(insideOfOrEqualTo: superView.edgeAnchors, constant: otherViewInsets),
+            
+            otherView.topLeftAnchors.constraint(eqaulTo: view.bottomRightAnchors)
+        ])
+
+        // update view frames
+        superView.layoutIfNeeded()
+        superView.updateConstraints()
+        
+        let expectedViewSize = CGSize(width: viewSize.width + otherViewSize.width + viewInsets.left + otherViewInsets.right,
+                              height: viewSize.height + otherViewSize.height + viewInsets.top + otherViewInsets.bottom)
+        
+        XCTAssertEqual(expectedViewSize, superView.frame.size)
     }
 }

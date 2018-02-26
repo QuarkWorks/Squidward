@@ -34,13 +34,19 @@ public final class LayoutHorizontalAnchors {
         self.right = right
     }
     
-    public func constraint(equalTo anchors: LayoutHorizontalAnchors, constant: CGFloat = 0.0) -> LayoutHorizontalConstraints {
-        return constraint(equalTo: anchors, constant: HorizontalInsets(left: constant, right: constant))
-    }
-    
-    public func constraint(equalTo anchors: LayoutHorizontalAnchors, constant: HorizontalInsets) -> LayoutHorizontalConstraints {
+    public func constraint(equalTo anchors: LayoutHorizontalAnchors, constant: HorizontalInsets = .zero) -> LayoutHorizontalConstraints {
         return LayoutHorizontalConstraints(left: left.constraint(equalTo: anchors.left, constant: constant.left),
                                           right: right.constraint(equalTo: anchors.right, constant: -constant.right))
+    }
+    
+    public func constraint(outsideOfOrEqualTo anchors: LayoutHorizontalAnchors, constant: HorizontalInsets = .zero) -> LayoutHorizontalConstraints {
+        return LayoutHorizontalConstraints(left: left.constraint(lessThanOrEqualTo: anchors.left, constant: constant.left),
+                                           right: right.constraint(greaterThanOrEqualTo: anchors.right, constant: -constant.right))
+    }
+    
+    public func constraint(insideOfOrEqualTo anchors: LayoutHorizontalAnchors, constant: HorizontalInsets = .zero) -> LayoutHorizontalConstraints {
+        return LayoutHorizontalConstraints(left: left.constraint(greaterThanOrEqualTo: anchors.left, constant: constant.left),
+                                           right: right.constraint(lessThanOrEqualTo: anchors.right, constant: -constant.right))
     }
 }
 

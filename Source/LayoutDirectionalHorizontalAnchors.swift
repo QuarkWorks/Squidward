@@ -34,13 +34,22 @@ public final class LayoutDirectionalHorizontalAnchors {
         self.trailing = trailing
     }
     
-    public func constraint(equalTo anchors: LayoutDirectionalHorizontalAnchors, constant: CGFloat = 0.0) -> LayoutDirectionalHorizonalConstraints {
-        return constraint(equalTo: anchors, constant: DirectionalHorizontalInsets(leading: constant, trailing: constant))
-    }
-    
-    public func constraint(equalTo anchors: LayoutDirectionalHorizontalAnchors, constant: DirectionalHorizontalInsets) -> LayoutDirectionalHorizonalConstraints {
+    public func constraint(equalTo anchors: LayoutDirectionalHorizontalAnchors,
+                           constant: DirectionalHorizontalInsets = .zero) -> LayoutDirectionalHorizonalConstraints {
         return LayoutDirectionalHorizonalConstraints(leading: leading.constraint(equalTo: anchors.leading, constant: constant.leading),
                                                      trailing: trailing.constraint(equalTo: anchors.trailing, constant: -constant.trailing))
+    }
+    
+    public func constraint(outsideOfOrEqualTo anchors: LayoutDirectionalHorizontalAnchors,
+                           constant: DirectionalHorizontalInsets = .zero) -> LayoutDirectionalHorizonalConstraints {
+        return LayoutDirectionalHorizonalConstraints(leading: leading.constraint(lessThanOrEqualTo: anchors.leading, constant: constant.leading),
+                                                     trailing: trailing.constraint(greaterThanOrEqualTo: anchors.trailing, constant: -constant.trailing))
+    }
+    
+    public func constraint(insideOfOrEqualTo anchors: LayoutDirectionalHorizontalAnchors,
+                           constant: DirectionalHorizontalInsets = .zero) -> LayoutDirectionalHorizonalConstraints {
+        return LayoutDirectionalHorizonalConstraints(leading: leading.constraint(greaterThanOrEqualTo: anchors.leading, constant: constant.leading),
+                                                     trailing: trailing.constraint(lessThanOrEqualTo: anchors.trailing, constant: -constant.trailing))
     }
 }
 
