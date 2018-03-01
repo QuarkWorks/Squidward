@@ -26,16 +26,16 @@ import UIKit
 public class LayoutDirectionalEdgeAnchors {
     
     /// The top anchor.
-    public let top: NSLayoutYAxisAnchor
+    internal let top: NSLayoutYAxisAnchor
     
     /// The leading anchor.
-    public let leading: NSLayoutXAxisAnchor
+    internal let leading: NSLayoutXAxisAnchor
     
     /// The bottom anchor.
-    public let bottom: NSLayoutYAxisAnchor
+    internal let bottom: NSLayoutYAxisAnchor
     
     /// The trailing anchor
-    public let trailing: NSLayoutXAxisAnchor
+    internal let trailing: NSLayoutXAxisAnchor
     
     internal init(top: NSLayoutYAxisAnchor, leading: NSLayoutXAxisAnchor,
                   bottom: NSLayoutYAxisAnchor, trailing: NSLayoutXAxisAnchor) {

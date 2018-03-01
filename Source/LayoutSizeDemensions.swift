@@ -25,11 +25,11 @@ import UIKit
 
 public class LayoutSizeDimensions {
 
-    /// The width constraint.
-    public let width: NSLayoutDimension
+    /// The width dimension.
+    internal let width: NSLayoutDimension
 
-    /// The height constraint.
-    public let height: NSLayoutDimension
+    /// The height dimension.
+    internal let height: NSLayoutDimension
     
     internal init(width: NSLayoutDimension, height: NSLayoutDimension) {
         self.width = width
@@ -106,7 +106,8 @@ public class LayoutSizeConstraints {
     /// The constant that is added to both the width and height constraints
     public var constant: CGSize {
         get {
-            return CGSize(width: width.constant, height: height.constant)
+            return CGSize(width: width.constant,
+                          height: height.constant)
         }
 
         set {

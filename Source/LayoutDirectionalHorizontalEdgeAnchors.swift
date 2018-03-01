@@ -23,30 +23,32 @@
 
 import UIKit
 
-public final class LayoutDirectionalHorizontalAnchors {
+public final class LayoutDirectionalHorizontalEdgeAnchors {
     
-    public let leading: NSLayoutXAxisAnchor
+    /// The leading layout anchor.
+    internal let leading: NSLayoutXAxisAnchor
     
-    public let trailing: NSLayoutXAxisAnchor
+    /// The trailing layout anchor.
+    internal let trailing: NSLayoutXAxisAnchor
     
     internal init(leading: NSLayoutXAxisAnchor, trailing: NSLayoutXAxisAnchor) {
         self.leading = leading
         self.trailing = trailing
     }
     
-    public func constraint(equalTo anchors: LayoutDirectionalHorizontalAnchors,
+    public func constraint(equalTo anchors: LayoutDirectionalHorizontalEdgeAnchors,
                            constant: DirectionalHorizontalInsets = .zero) -> LayoutDirectionalHorizonalConstraints {
         return LayoutDirectionalHorizonalConstraints(leading: leading.constraint(equalTo: anchors.leading, constant: constant.leading),
                                                      trailing: trailing.constraint(equalTo: anchors.trailing, constant: -constant.trailing))
     }
     
-    public func constraint(outsideOfOrEqualTo anchors: LayoutDirectionalHorizontalAnchors,
+    public func constraint(outsideOfOrEqualTo anchors: LayoutDirectionalHorizontalEdgeAnchors,
                            constant: DirectionalHorizontalInsets = .zero) -> LayoutDirectionalHorizonalConstraints {
         return LayoutDirectionalHorizonalConstraints(leading: leading.constraint(lessThanOrEqualTo: anchors.leading, constant: constant.leading),
                                                      trailing: trailing.constraint(greaterThanOrEqualTo: anchors.trailing, constant: -constant.trailing))
     }
     
-    public func constraint(insideOfOrEqualTo anchors: LayoutDirectionalHorizontalAnchors,
+    public func constraint(insideOfOrEqualTo anchors: LayoutDirectionalHorizontalEdgeAnchors,
                            constant: DirectionalHorizontalInsets = .zero) -> LayoutDirectionalHorizonalConstraints {
         return LayoutDirectionalHorizonalConstraints(leading: leading.constraint(greaterThanOrEqualTo: anchors.leading, constant: constant.leading),
                                                      trailing: trailing.constraint(lessThanOrEqualTo: anchors.trailing, constant: -constant.trailing))
@@ -55,8 +57,8 @@ public final class LayoutDirectionalHorizontalAnchors {
 
 extension LayoutGuide {
     
-    public var directionalHorizontalAnchors: LayoutDirectionalHorizontalAnchors {
-        return LayoutDirectionalHorizontalAnchors(leading: leadingAnchor, trailing: trailingAnchor)
+    public var directionalHorizontalEdgeAnchors: LayoutDirectionalHorizontalEdgeAnchors {
+        return LayoutDirectionalHorizontalEdgeAnchors(leading: leadingAnchor, trailing: trailingAnchor)
     }
 }
 
@@ -73,7 +75,8 @@ public final class LayoutDirectionalHorizonalConstraints {
     
     public var constant: DirectionalHorizontalInsets {
         get {
-            return DirectionalHorizontalInsets(leading: leading.constant, trailing: -trailing.constant)
+            return DirectionalHorizontalInsets(leading: leading.constant,
+                                               trailing: -trailing.constant)
         }
         
         set {

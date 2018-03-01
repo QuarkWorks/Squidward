@@ -98,11 +98,11 @@ class SquidwardTests: XCTestCase {
     
     func testHorizontalConstraints() {
         
-        var constraint: LayoutHorizontalConstraints!
+        var constraint: LayoutHorizontalEdgeConstraints!
         let insets = HorizontalInsets(left: 10, right: 20)
         
         NSLayoutConstraint.activate([
-            view.horizontalAnchors.constraint(equalTo: superView.horizontalAnchors, constant: insets).assign(to: &constraint)
+            view.horizontalEdgeAnchors.constraint(equalTo: superView.horizontalEdgeAnchors, constant: insets).assign(to: &constraint)
         ])
         
         XCTAssertEqual(insets, constraint.constant)
@@ -114,7 +114,7 @@ class SquidwardTests: XCTestCase {
         let insets = DirectionalHorizontalInsets(leading: 10, trailing: 20)
         
         NSLayoutConstraint.activate([
-            view.directionalHorizontalAnchors.constraint(equalTo: superView.directionalHorizontalAnchors, constant: insets).assign(to: &constraint)
+            view.directionalHorizontalEdgeAnchors.constraint(equalTo: superView.directionalHorizontalEdgeAnchors, constant: insets).assign(to: &constraint)
         ])
         
         XCTAssertEqual(insets, constraint.constant)
@@ -122,11 +122,11 @@ class SquidwardTests: XCTestCase {
     
     func testVerticalConstraints() {
         
-        var constraint: LayoutVerticalConstraints!
+        var constraint: LayoutVerticalEdgeConstraints!
         let insets = VerticalInsets(top: 10, bottom: 20)
         
         NSLayoutConstraint.activate([
-            view.verticalAnchors.constraint(equalTo: superView.verticalAnchors, constant: insets).assign(to: &constraint)
+            view.verticalEdgeAnchors.constraint(equalTo: superView.verticalEdgeAnchors, constant: insets).assign(to: &constraint)
         ])
         
         XCTAssertEqual(insets, constraint.constant)

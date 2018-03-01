@@ -26,16 +26,16 @@ import UIKit
 public class LayoutEdgeAnchors {
 
     /// The top anchor.
-    public let top: NSLayoutYAxisAnchor
+    internal let top: NSLayoutYAxisAnchor
 
     /// The left anchor.
-    public let left: NSLayoutXAxisAnchor
+    internal let left: NSLayoutXAxisAnchor
 
     /// The bottom anchor.
-    public let bottom: NSLayoutYAxisAnchor
+    internal let bottom: NSLayoutYAxisAnchor
 
     /// The right anchor
-    public let right: NSLayoutXAxisAnchor
+    internal let right: NSLayoutXAxisAnchor
     
     internal init(top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor,
                 bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor) {
@@ -63,13 +63,17 @@ public class LayoutEdgeAnchors {
         guard !edges.isEmpty else {
             fatalError("At least one edge must be constrained")
         }
-
-        let topConstraint = edges.contains(.top) ? top.constraint(equalTo: anchors.top, constant: constant.top) : nil
-        let leftConstraint = edges.contains(.left) ? left.constraint(equalTo: anchors.left, constant: constant.left) : nil
-        let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(equalTo: anchors.bottom, constant: -constant.bottom) : nil
-        let rightConstraint = edges.contains(.right) ? right.constraint(equalTo: anchors.right, constant: -constant.right) : nil
         
-        return LayoutEdgeConstraints(top: topConstraint, left: leftConstraint, bottom: bottomConstraint, right: rightConstraint)
+        let constraints = LayoutEdgeConstraints(
+            top: edges.contains(.top) ? top.constraint(equalTo: anchors.top) : nil,
+            left: edges.contains(.left) ? left.constraint(equalTo: anchors.left) : nil,
+            bottom: edges.contains(.bottom) ? bottom.constraint(equalTo: anchors.bottom) : nil,
+            right: edges.contains(.right) ? right.constraint(equalTo: anchors.right) : nil
+        )
+        
+        constraints.constant = constant
+        
+        return constraints
     }
     
     public func constraint(edges: UIRectEdge = .all,

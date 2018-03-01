@@ -23,41 +23,41 @@
 
 import UIKit
 
-public final class LayoutHorizontalAnchors {
+public final class LayoutHorizontalEdgeAnchors {
     
-    public let left: NSLayoutXAxisAnchor
+    internal let left: NSLayoutXAxisAnchor
     
-    public let right: NSLayoutXAxisAnchor
+    internal let right: NSLayoutXAxisAnchor
     
     internal init(left: NSLayoutXAxisAnchor, right: NSLayoutXAxisAnchor) {
         self.left = left
         self.right = right
     }
     
-    public func constraint(equalTo anchors: LayoutHorizontalAnchors, constant: HorizontalInsets = .zero) -> LayoutHorizontalConstraints {
-        return LayoutHorizontalConstraints(left: left.constraint(equalTo: anchors.left, constant: constant.left),
+    public func constraint(equalTo anchors: LayoutHorizontalEdgeAnchors, constant: HorizontalInsets = .zero) -> LayoutHorizontalEdgeConstraints {
+        return LayoutHorizontalEdgeConstraints(left: left.constraint(equalTo: anchors.left, constant: constant.left),
                                           right: right.constraint(equalTo: anchors.right, constant: -constant.right))
     }
     
-    public func constraint(outsideOfOrEqualTo anchors: LayoutHorizontalAnchors, constant: HorizontalInsets = .zero) -> LayoutHorizontalConstraints {
-        return LayoutHorizontalConstraints(left: left.constraint(lessThanOrEqualTo: anchors.left, constant: constant.left),
+    public func constraint(outsideOfOrEqualTo anchors: LayoutHorizontalEdgeAnchors, constant: HorizontalInsets = .zero) -> LayoutHorizontalEdgeConstraints {
+        return LayoutHorizontalEdgeConstraints(left: left.constraint(lessThanOrEqualTo: anchors.left, constant: constant.left),
                                            right: right.constraint(greaterThanOrEqualTo: anchors.right, constant: -constant.right))
     }
     
-    public func constraint(insideOfOrEqualTo anchors: LayoutHorizontalAnchors, constant: HorizontalInsets = .zero) -> LayoutHorizontalConstraints {
-        return LayoutHorizontalConstraints(left: left.constraint(greaterThanOrEqualTo: anchors.left, constant: constant.left),
+    public func constraint(insideOfOrEqualTo anchors: LayoutHorizontalEdgeAnchors, constant: HorizontalInsets = .zero) -> LayoutHorizontalEdgeConstraints {
+        return LayoutHorizontalEdgeConstraints(left: left.constraint(greaterThanOrEqualTo: anchors.left, constant: constant.left),
                                            right: right.constraint(lessThanOrEqualTo: anchors.right, constant: -constant.right))
     }
 }
 
 extension LayoutGuide {
     
-    public var horizontalAnchors: LayoutHorizontalAnchors {
-        return LayoutHorizontalAnchors(left: leftAnchor, right: rightAnchor)
+    public var horizontalEdgeAnchors: LayoutHorizontalEdgeAnchors {
+        return LayoutHorizontalEdgeAnchors(left: leftAnchor, right: rightAnchor)
     }
 }
 
-public final class LayoutHorizontalConstraints {
+public final class LayoutHorizontalEdgeConstraints {
     
     public let left: NSLayoutConstraint
     
@@ -70,7 +70,8 @@ public final class LayoutHorizontalConstraints {
     
     public var constant: HorizontalInsets {
         get {
-            return HorizontalInsets(left: left.constant, right: -right.constant)
+            return HorizontalInsets(left: left.constant,
+                                    right: -right.constant)
         }
         
         set {
@@ -80,7 +81,7 @@ public final class LayoutHorizontalConstraints {
     }
 }
 
-extension LayoutHorizontalConstraints: LayoutConstraintGroup {
+extension LayoutHorizontalEdgeConstraints: LayoutConstraintGroup {
     
     public var constraints: [NSLayoutConstraint] {
         return [left, right]

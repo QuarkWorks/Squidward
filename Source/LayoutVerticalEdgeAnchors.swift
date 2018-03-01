@@ -23,41 +23,43 @@
 
 import UIKit
 
-public final class LayoutVerticalAnchors {
+public final class LayoutVerticalEdgeAnchors {
     
-    public let top: NSLayoutYAxisAnchor
+    /// The top layout anchor.
+    internal let top: NSLayoutYAxisAnchor
     
-    public let bottom: NSLayoutYAxisAnchor
+    /// The bottom layout anchor.
+    internal let bottom: NSLayoutYAxisAnchor
     
     internal init(top: NSLayoutYAxisAnchor, bottom: NSLayoutYAxisAnchor) {
         self.top = top
         self.bottom = bottom
     }
     
-    public func constraint(equalTo anchors: LayoutVerticalAnchors, constant: VerticalInsets = .zero) -> LayoutVerticalConstraints {
-        return LayoutVerticalConstraints(top: top.constraint(equalTo: anchors.top, constant: constant.top),
+    public func constraint(equalTo anchors: LayoutVerticalEdgeAnchors, constant: VerticalInsets = .zero) -> LayoutVerticalEdgeConstraints {
+        return LayoutVerticalEdgeConstraints(top: top.constraint(equalTo: anchors.top, constant: constant.top),
                                         bottom: bottom.constraint(equalTo: anchors.bottom, constant: -constant.bottom))
     }
     
-    public func constraint(outsideOfOrEqualTo anchors: LayoutVerticalAnchors, constant: VerticalInsets = .zero) -> LayoutVerticalConstraints {
-        return LayoutVerticalConstraints(top: top.constraint(lessThanOrEqualTo: anchors.top, constant: constant.top),
+    public func constraint(outsideOfOrEqualTo anchors: LayoutVerticalEdgeAnchors, constant: VerticalInsets = .zero) -> LayoutVerticalEdgeConstraints {
+        return LayoutVerticalEdgeConstraints(top: top.constraint(lessThanOrEqualTo: anchors.top, constant: constant.top),
                                          bottom: bottom.constraint(greaterThanOrEqualTo: anchors.bottom, constant: -constant.bottom))
     }
     
-    public func constraint(insideOfOrEqualTo anchors: LayoutVerticalAnchors, constant: VerticalInsets = .zero) -> LayoutVerticalConstraints {
-        return LayoutVerticalConstraints(top: top.constraint(greaterThanOrEqualTo: anchors.top, constant: constant.top),
+    public func constraint(insideOfOrEqualTo anchors: LayoutVerticalEdgeAnchors, constant: VerticalInsets = .zero) -> LayoutVerticalEdgeConstraints {
+        return LayoutVerticalEdgeConstraints(top: top.constraint(greaterThanOrEqualTo: anchors.top, constant: constant.top),
                                          bottom: bottom.constraint(lessThanOrEqualTo: anchors.bottom, constant: -constant.bottom))
     }
 }
 
 extension LayoutGuide {
     
-    public var verticalAnchors: LayoutVerticalAnchors {
-        return LayoutVerticalAnchors(top: topAnchor, bottom: bottomAnchor)
+    public var verticalEdgeAnchors: LayoutVerticalEdgeAnchors {
+        return LayoutVerticalEdgeAnchors(top: topAnchor, bottom: bottomAnchor)
     }
 }
 
-public final class LayoutVerticalConstraints {
+public final class LayoutVerticalEdgeConstraints {
     
     public let top: NSLayoutConstraint
     
@@ -70,7 +72,8 @@ public final class LayoutVerticalConstraints {
     
     public var constant: VerticalInsets {
         get {
-            return VerticalInsets(top: top.constant, bottom: -bottom.constant)
+            return VerticalInsets(top: top.constant,
+                                  bottom: -bottom.constant)
         }
         
         set {
@@ -80,7 +83,7 @@ public final class LayoutVerticalConstraints {
     }
 }
 
-extension LayoutVerticalConstraints: LayoutConstraintGroup {
+extension LayoutVerticalEdgeConstraints: LayoutConstraintGroup {
     
     public var constraints: [NSLayoutConstraint] {
         return [top, bottom]

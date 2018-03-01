@@ -25,11 +25,11 @@ import UIKit
 
 public final class LayoutPointAnchors {
 
-    /// The xAsis layout anchor
-    public let xAxis: NSLayoutXAxisAnchor
+    /// The xAsis layout anchor.
+    internal let xAxis: NSLayoutXAxisAnchor
 
-    /// The yAsis layout anchor
-    public let yAxis: NSLayoutYAxisAnchor
+    /// The yAsis layout anchor.
+    internal let yAxis: NSLayoutYAxisAnchor
     
     internal init(xAxis: NSLayoutXAxisAnchor, yAxis: NSLayoutYAxisAnchor) {
         self.xAxis = xAxis
@@ -37,7 +37,7 @@ public final class LayoutPointAnchors {
     }
 
     /**
-     Constrains to another view's anchors with an offset
+     Constrains to another view's anchors with an offset.
      
      - parameter anchors: The the target anchors to be constrained to.
      - parameter constant: An offset that is applied the both the x and y axis.
@@ -147,7 +147,8 @@ public final class LayoutPointConstraints {
     /// A constant that can be applied the the x and y constraints
     public var constant: UIOffset {
         get {
-            return UIOffset(horizontal: xAxis.constant, vertical: yAxis.constant)
+            return UIOffset(horizontal: xAxis.constant,
+                            vertical: yAxis.constant)
         }
 
         set {

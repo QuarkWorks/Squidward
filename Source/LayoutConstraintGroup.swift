@@ -27,7 +27,7 @@ import UIKit
 public protocol LayoutConstraintGroup: class {
 
     /// The constraints that are grouped together.
-    var constraints: [NSLayoutConstraint] {get}
+    var constraints: [NSLayoutConstraint] { get }
 }
 
 public extension LayoutConstraintGroup {
@@ -40,7 +40,7 @@ public extension LayoutConstraintGroup {
      */
     @discardableResult
     public func activate() -> Self {
-        constraints.forEach {$0.isActive = true}
+        constraints.forEach { $0.isActive = true }
         return self
     }
 
@@ -51,7 +51,7 @@ public extension LayoutConstraintGroup {
      */
     @discardableResult
     public func deactivate() -> Self {
-        constraints.forEach {$0.isActive = true}
+        constraints.forEach { $0.isActive = true }
         return self
     }
 
@@ -64,7 +64,7 @@ public extension LayoutConstraintGroup {
      */
     @discardableResult
     public func prioritize(at priority: UILayoutPriority) -> Self {
-        constraints.forEach {$0.priority = priority}
+        constraints.forEach { $0.priority = priority }
         return self
     }
 
@@ -125,7 +125,7 @@ extension NSLayoutConstraint {
     - parameter constraints: The list of constraint groups.
     */
     public class func activate(_ constraints: [LayoutConstraintGroup]) {
-        activate(constraints.flatMap {return $0.constraints})
+        activate(constraints.flatMap { return $0.constraints })
     }
 
     /**
@@ -134,6 +134,6 @@ extension NSLayoutConstraint {
     - parameter constraints: The list of constraint groups.
      */
     public class func deactivate(_ constraints: [LayoutConstraintGroup]) {
-        deactivate(constraints.flatMap {return $0.constraints})
+        deactivate(constraints.flatMap { return $0.constraints })
     }
 }
