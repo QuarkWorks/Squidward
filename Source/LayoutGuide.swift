@@ -72,5 +72,13 @@ extension UIView {
             return nil
         }
     }
+    
+    var safeAreaInstetsWrapper: UIEdgeInsets? {
+        if #available(iOS 11.0, *) {
+            return safeAreaInsets
+        } else {
+            return nil
+        }
+    }
 }
 
