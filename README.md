@@ -22,7 +22,7 @@ NSLayoutConstraint.activate([
 // To
 NSLayoutConstraint.activate([
     view.edgeAnchors.constraint(equalTo: superView.edgeAnchors,
-        insets: UIEdgeInsets(top: 10, left: 20, bottom: 30, right: 40))
+        constant: UIEdgeInsets(top: 10, left: 20, bottom: 30, right: 40))
 ])
 ```
 
@@ -39,8 +39,8 @@ NSLayoutConstraint.activate([
 
 // To
 NSLayoutConstraint.activate([
-    view.centerAnchors.constraint(eqaulTo: superView.centerAnchors, offset: UIOffset(horizontal: 10, vertical: 20)),
-    view.sizeAnchors.constraint(equalTo: superView.sizeAnchors, offset: UIOffset(horizontal: 20, vertical: 30))
+    view.centerAnchors.constraint(eqaulTo: superView.centerAnchors, constant: UIOffset(horizontal: 10, vertical: 20)),
+    view.sizeAnchors.constraint(equalTo: superView.sizeAnchors, constant: UIOffset(horizontal: 20, vertical: 30))
 ])
 ```
 
@@ -57,7 +57,7 @@ NSLayoutConstraint.activate([
 // To 
 NSLayoutConstraint.activate([
     view.leftAnchor.constraint(equalTo: superView.leftAnchor)
-        .prioritize(UILayoutPriorityDefaultLow).assign(to: &leftConstraint),
+        .prioritize(at: .defaultLow).assign(to: &leftConstraint),
 ])
 ```
 
@@ -103,6 +103,6 @@ NSLayoutConstraint.activate([
 // To
 NSLayoutConstraint.activate([
     view.directionalEdgeAnchors.constraint(equalTo: superView.edgeAnchors,
-        insets: DirectionalEdgeInsets(top: 10, leading: 20, bottom: 30, trailing: 40))
+        constant: DirectionalEdgeInsets(top: 10, leading: 20, bottom: 30, trailing: 40))
 ])
 ```
