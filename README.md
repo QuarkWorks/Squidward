@@ -4,6 +4,10 @@
 
 Squidward is an iOS framework that reduces the plumbing required for creating constraints in code using auto layout. The api is to match the current anchor system as much as possible so the learning curve is small and the magic is minimal. Here are the main use cases to help you get started.
 
+How to install via Cocoapods
+```ruby
+pod 'Squidward', :git => 'https://github.com/QuarkWorks/Squidward.git', :tag => '{{version}}'
+```
 
 ### Edge Anchors
 ```swift
