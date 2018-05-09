@@ -155,7 +155,7 @@ public class LayoutDirectionalEdgeConstraints {
 extension LayoutDirectionalEdgeConstraints: LayoutConstraintGroup {
     
     public var constraints: [NSLayoutConstraint] {
-        return [top, leading, bottom, trailing].flatMap {$0}
+        return [top, leading, bottom, trailing].compactMap { $0 }
     }
 }
 

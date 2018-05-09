@@ -159,6 +159,6 @@ public class LayoutEdgeConstraints {
 extension LayoutEdgeConstraints: LayoutConstraintGroup {
 
     public var constraints: [NSLayoutConstraint] {
-        return [top, left, bottom, right].flatMap {$0}
+        return [top, left, bottom, right].compactMap { $0 }
     }
 }

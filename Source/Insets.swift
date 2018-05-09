@@ -76,10 +76,8 @@ public struct DirectionalEdgeInsets: Equatable {
         
     public var verticalInsets: VerticalInsets {
         get {
-            return VerticalInsets(top: top,
-                                  bottom: bottom)
+            return VerticalInsets(top: top, bottom: bottom)
         }
-        
         set {
             top = newValue.top
             bottom = newValue.bottom
@@ -172,24 +170,16 @@ public struct VerticalInsets: Equatable {
 public extension UIEdgeInsets {
     
     public init(horizontal: CGFloat, vertical: CGFloat) {
-        self.top = vertical
-        self.left = horizontal
-        self.bottom = vertical
-        self.right = horizontal
+        self.init(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
     }
     
     public init(all: CGFloat) {
-        self.top = all
-        self.left = all
-        self.bottom = all
-        self.right = all
+        self.init(top: all, left: all, bottom: all, right: all)
     }
     
     public var horizontalInsets: HorizontalInsets {
         get {
-            return HorizontalInsets(left: left,
-                                    right: right)
-            
+            return HorizontalInsets(left: left, right: right)
         }
         set {
             self.left = newValue.left
@@ -199,8 +189,7 @@ public extension UIEdgeInsets {
     
     public var verticalInsets: VerticalInsets {
         get {
-            return VerticalInsets(top: top,
-                                  bottom: bottom)
+            return VerticalInsets(top: top, bottom: bottom)
         }
         
         set {
@@ -213,14 +202,12 @@ public extension UIEdgeInsets {
 public extension CGSize {
     
     public init(all: CGFloat) {
-        self.width = all
-        self.height = all
+        self.init(width: all, height: all)
     }
 }
 public extension UIOffset {
     
     public init(all: CGFloat) {
-        self.horizontal = all
-        self.vertical = all
+        self.init(horizontal: all, vertical: all)
     }
 }

@@ -152,7 +152,6 @@ class SquidwardTests: XCTestCase {
 
         // update view frames
         superView.layoutIfNeeded()
-        superView.updateConstraints()
         
         let expectedViewSize = CGSize(width: viewSize.width + otherViewSize.width + viewInsets.left + otherViewInsets.right,
                               height: viewSize.height + otherViewSize.height + viewInsets.top + otherViewInsets.bottom)

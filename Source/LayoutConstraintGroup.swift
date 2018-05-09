@@ -93,19 +93,6 @@ public extension LayoutConstraintGroup {
         target = self
         return self
     }
-
-    /**
-     Assigns passed in constraint to self. This allows for fluent assignment inside NSLayoutConstraint.activate()
-
-     - parameter constraint: The constraint address that self will be assigned to
-
-     - returns: self
-     */
-    @discardableResult
-    public func assign(to target: inout Self!) -> Self {
-        target = self
-        return self
-    }
 }
 
 
