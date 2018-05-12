@@ -25,7 +25,7 @@ import XCTest
 import UIKit
 import Squidward
 
-class SquidwardTests: XCTestCase {
+class LayoutTests: XCTestCase {
 
     var superView: UIView!
     var view: UIView!

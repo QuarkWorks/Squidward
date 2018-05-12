@@ -21,21 +21,21 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-/// Localized version of UIRectEdge
-public struct DirectionalRectEdge: OptionSet {
+extension UIView {
     
-    public let rawValue: UInt
+    public func addSubviews(_ subview: UIView, _ additionalSubviews: UIView...) {
+        addSubviews([subview] + additionalSubviews)
+    }
     
-    public static let top = DirectionalRectEdge(rawValue: 1 << 0)
-    public static let leading = DirectionalRectEdge(rawValue: 1 << 1)
-    public static let bottom = DirectionalRectEdge(rawValue: 1 << 2)
-    public static let trailing = DirectionalRectEdge(rawValue: 1 << 3)
+    public func addSubviews(_ subviews: [UIView]) {
+        subviews.forEach(addSubview(_:))
+    }
     
-    public static let all: DirectionalRectEdge = [.top, .leading, .bottom, .trailing]
-    
-    public init(rawValue: UInt) {
-        self.rawValue = rawValue
+    /// Walks the view tree upward until a view without a superview is found.
+    /// Returns `self` if it doesn't have a superview.
+    public func rootview() -> UIView {
+        return superview?.rootview() ?? self
     }
 }

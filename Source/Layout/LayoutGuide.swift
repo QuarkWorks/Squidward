@@ -21,8 +21,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
-import Foundation
+import UIKit
 
 /// The minimum collection of anchors needed to describe a `UILayoutGuide`
 public protocol LayoutGuide {
@@ -65,7 +64,7 @@ extension UILayoutGuide: LayoutGuide { }
 extension UIView {
     
     /// A nil returning wrapper around `safeAreaLayoutGuide` for non iOS 11 builds
-    var safeAreaLayoutGuideWrapper: LayoutGuide? {
+    var safeAreaLayoutGuideOrNil: LayoutGuide? {
         if #available(iOS 11.0, *) {
             return safeAreaLayoutGuide
         } else {
@@ -73,7 +72,7 @@ extension UIView {
         }
     }
     
-    var safeAreaInstetsWrapper: UIEdgeInsets? {
+    var safeAreaInstetsOrNil: UIEdgeInsets? {
         if #available(iOS 11.0, *) {
             return safeAreaInsets
         } else {

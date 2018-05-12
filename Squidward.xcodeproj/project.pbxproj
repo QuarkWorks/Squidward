@@ -10,12 +10,19 @@
 		7736E8311FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736E8301FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift */; };
 		773E730F2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773E730D2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift */; };
 		773E73102047B0B500EA198F /* LayoutVerticalEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773E730E2047B0B500EA198F /* LayoutVerticalEdgeAnchors.swift */; };
+		7744A56A20A790430080C055 /* UIView+Squidward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744A56920A790430080C055 /* UIView+Squidward.swift */; };
+		7744A56C20A791F80080C055 /* UIStackView+Squidward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744A56B20A791F80080C055 /* UIStackView+Squidward.swift */; };
+		7744A56E20A792630080C055 /* UILayoutPriority+Squidward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744A56D20A792630080C055 /* UILayoutPriority+Squidward.swift */; };
+		7744A57020A795E10080C055 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744A56F20A795E10080C055 /* CircleView.swift */; };
+		7744A57220A797EC0080C055 /* UIControl+Squidward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744A57120A797EC0080C055 /* UIControl+Squidward.swift */; };
+		7744A57520A79A510080C055 /* ViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744A57320A79A4D0080C055 /* ViewTests.swift */; };
+		7744A57820A79FB40080C055 /* UIControl+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744A57620A79FB00080C055 /* UIControl+Swizzle.swift */; };
 		777820051FC26F4F00C94C2C /* LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777820041FC26F4F00C94C2C /* LayoutGuide.swift */; };
 		777820071FC2741200C94C2C /* DirectionalRectEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777820061FC2741200C94C2C /* DirectionalRectEdge.swift */; };
 		777820091FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777820081FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift */; };
 		7793C6BF1F6DBA8900A1D147 /* Squidward.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7793C6B51F6DBA8900A1D147 /* Squidward.framework */; };
 		7793C6D91F6DBB9900A1D147 /* Squidward.h in Headers */ = {isa = PBXBuildFile; fileRef = 7793C6D11F6DBB4300A1D147 /* Squidward.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7793C6DB1F6DBBCC00A1D147 /* SquidwardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6D41F6DBB4300A1D147 /* SquidwardTests.swift */; };
+		7793C6DB1F6DBBCC00A1D147 /* LayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6D41F6DBB4300A1D147 /* LayoutTests.swift */; };
 		7793C6E01F6DBC9400A1D147 /* LayoutConstraintGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6DC1F6DBC9400A1D147 /* LayoutConstraintGroup.swift */; };
 		7793C6E11F6DBC9400A1D147 /* LayoutEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6DD1F6DBC9400A1D147 /* LayoutEdgeAnchors.swift */; };
 		7793C6E21F6DBC9400A1D147 /* LayoutPointAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6DE1F6DBC9400A1D147 /* LayoutPointAnchors.swift */; };
@@ -37,6 +44,13 @@
 		7736E8301FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutHorizontalEdgeAnchors.swift; sourceTree = "<group>"; };
 		773E730D2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutDirectionalHorizontalEdgeAnchors.swift; sourceTree = "<group>"; };
 		773E730E2047B0B500EA198F /* LayoutVerticalEdgeAnchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutVerticalEdgeAnchors.swift; sourceTree = "<group>"; };
+		7744A56920A790430080C055 /* UIView+Squidward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Squidward.swift"; sourceTree = "<group>"; };
+		7744A56B20A791F80080C055 /* UIStackView+Squidward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Squidward.swift"; sourceTree = "<group>"; };
+		7744A56D20A792630080C055 /* UILayoutPriority+Squidward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILayoutPriority+Squidward.swift"; sourceTree = "<group>"; };
+		7744A56F20A795E10080C055 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		7744A57120A797EC0080C055 /* UIControl+Squidward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Squidward.swift"; sourceTree = "<group>"; };
+		7744A57320A79A4D0080C055 /* ViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTests.swift; sourceTree = "<group>"; };
+		7744A57620A79FB00080C055 /* UIControl+Swizzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Swizzle.swift"; sourceTree = "<group>"; };
 		777820041FC26F4F00C94C2C /* LayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutGuide.swift; sourceTree = "<group>"; };
 		777820061FC2741200C94C2C /* DirectionalRectEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalRectEdge.swift; sourceTree = "<group>"; };
 		777820081FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutDirectionalEdgeAnchors.swift; sourceTree = "<group>"; };
@@ -45,7 +59,7 @@
 		7793C6D01F6DBB4300A1D147 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7793C6D11F6DBB4300A1D147 /* Squidward.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Squidward.h; sourceTree = "<group>"; };
 		7793C6D31F6DBB4300A1D147 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7793C6D41F6DBB4300A1D147 /* SquidwardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquidwardTests.swift; sourceTree = "<group>"; };
+		7793C6D41F6DBB4300A1D147 /* LayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutTests.swift; sourceTree = "<group>"; };
 		7793C6DC1F6DBC9400A1D147 /* LayoutConstraintGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraintGroup.swift; sourceTree = "<group>"; };
 		7793C6DD1F6DBC9400A1D147 /* LayoutEdgeAnchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEdgeAnchors.swift; sourceTree = "<group>"; };
 		7793C6DE1F6DBC9400A1D147 /* LayoutPointAnchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutPointAnchors.swift; sourceTree = "<group>"; };
@@ -72,6 +86,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7744A56420A78E5D0080C055 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				7793C6DD1F6DBC9400A1D147 /* LayoutEdgeAnchors.swift */,
+				777820081FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift */,
+				7736E8301FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift */,
+				773E730D2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift */,
+				773E730E2047B0B500EA198F /* LayoutVerticalEdgeAnchors.swift */,
+				7793C6DE1F6DBC9400A1D147 /* LayoutPointAnchors.swift */,
+				7793C6DF1F6DBC9400A1D147 /* LayoutSizeDemensions.swift */,
+				7793C6DC1F6DBC9400A1D147 /* LayoutConstraintGroup.swift */,
+				777820041FC26F4F00C94C2C /* LayoutGuide.swift */,
+				7744A56D20A792630080C055 /* UILayoutPriority+Squidward.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		7744A56520A78F670080C055 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				777820061FC2741200C94C2C /* DirectionalRectEdge.swift */,
+				77AAC1C01FD88A6C00A2F652 /* Insets.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7744A56820A7902D0080C055 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7744A56920A790430080C055 /* UIView+Squidward.swift */,
+				7744A56B20A791F80080C055 /* UIStackView+Squidward.swift */,
+				7744A56F20A795E10080C055 /* CircleView.swift */,
+				7744A57120A797EC0080C055 /* UIControl+Squidward.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7793C6AB1F6DBA8900A1D147 = {
 			isa = PBXGroup;
 			children = (
@@ -93,19 +144,11 @@
 		7793C6CF1F6DBB4300A1D147 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				7744A56820A7902D0080C055 /* Views */,
+				7744A56520A78F670080C055 /* Models */,
+				7744A56420A78E5D0080C055 /* Layout */,
 				7793C6D11F6DBB4300A1D147 /* Squidward.h */,
 				7793C6D01F6DBB4300A1D147 /* Info.plist */,
-				777820061FC2741200C94C2C /* DirectionalRectEdge.swift */,
-				77AAC1C01FD88A6C00A2F652 /* Insets.swift */,
-				7793C6DC1F6DBC9400A1D147 /* LayoutConstraintGroup.swift */,
-				777820041FC26F4F00C94C2C /* LayoutGuide.swift */,
-				7793C6DD1F6DBC9400A1D147 /* LayoutEdgeAnchors.swift */,
-				777820081FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift */,
-				7736E8301FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift */,
-				773E730D2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift */,
-				773E730E2047B0B500EA198F /* LayoutVerticalEdgeAnchors.swift */,
-				7793C6DE1F6DBC9400A1D147 /* LayoutPointAnchors.swift */,
-				7793C6DF1F6DBC9400A1D147 /* LayoutSizeDemensions.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -114,7 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				7793C6D31F6DBB4300A1D147 /* Info.plist */,
-				7793C6D41F6DBB4300A1D147 /* SquidwardTests.swift */,
+				7793C6D41F6DBB4300A1D147 /* LayoutTests.swift */,
+				7744A57320A79A4D0080C055 /* ViewTests.swift */,
+				7744A57620A79FB00080C055 /* UIControl+Swizzle.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -232,12 +277,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				777820051FC26F4F00C94C2C /* LayoutGuide.swift in Sources */,
+				7744A56A20A790430080C055 /* UIView+Squidward.swift in Sources */,
+				7744A57220A797EC0080C055 /* UIControl+Squidward.swift in Sources */,
 				77AAC1C11FD88A6C00A2F652 /* Insets.swift in Sources */,
 				7736E8311FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift in Sources */,
 				7793C6E01F6DBC9400A1D147 /* LayoutConstraintGroup.swift in Sources */,
 				7793C6E21F6DBC9400A1D147 /* LayoutPointAnchors.swift in Sources */,
+				7744A57020A795E10080C055 /* CircleView.swift in Sources */,
 				777820091FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift in Sources */,
+				7744A56C20A791F80080C055 /* UIStackView+Squidward.swift in Sources */,
 				7793C6E11F6DBC9400A1D147 /* LayoutEdgeAnchors.swift in Sources */,
+				7744A56E20A792630080C055 /* UILayoutPriority+Squidward.swift in Sources */,
 				773E73102047B0B500EA198F /* LayoutVerticalEdgeAnchors.swift in Sources */,
 				773E730F2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift in Sources */,
 				777820071FC2741200C94C2C /* DirectionalRectEdge.swift in Sources */,
@@ -249,7 +299,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7793C6DB1F6DBBCC00A1D147 /* SquidwardTests.swift in Sources */,
+				7744A57520A79A510080C055 /* ViewTests.swift in Sources */,
+				7793C6DB1F6DBBCC00A1D147 /* LayoutTests.swift in Sources */,
+				7744A57820A79FB40080C055 /* UIControl+Swizzle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
