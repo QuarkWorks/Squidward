@@ -32,7 +32,6 @@ public protocol LayoutConstraintGroup: class {
 
 public extension LayoutConstraintGroup {
 
-
     /**
      Activates the current constraint then returns them to allow for assignment or method chaining.
 
@@ -94,7 +93,6 @@ public extension LayoutConstraintGroup {
         return self
     }
 }
-
 
 extension NSLayoutConstraint: LayoutConstraintGroup {
 

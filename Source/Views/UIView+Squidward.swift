@@ -24,15 +24,15 @@
 import UIKit
 
 extension UIView {
-    
+
     public func addSubviews(_ subview: UIView, _ additionalSubviews: UIView...) {
         addSubviews([subview] + additionalSubviews)
     }
-    
+
     public func addSubviews(_ subviews: [UIView]) {
         subviews.forEach(addSubview(_:))
     }
-    
+
     /// Walks the view tree upward until a view without a superview is found.
     /// Returns `self` if it doesn't have a superview.
     public func rootview() -> UIView {

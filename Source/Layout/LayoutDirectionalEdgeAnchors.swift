@@ -24,28 +24,28 @@
 import UIKit
 
 public class LayoutDirectionalEdgeAnchors {
-    
+
     /// The top anchor.
     internal let top: NSLayoutYAxisAnchor
-    
+
     /// The leading anchor.
     internal let leading: NSLayoutXAxisAnchor
-    
+
     /// The bottom anchor.
     internal let bottom: NSLayoutYAxisAnchor
-    
+
     /// The trailing anchor
     internal let trailing: NSLayoutXAxisAnchor
-    
+
     internal init(top: NSLayoutYAxisAnchor, leading: NSLayoutXAxisAnchor,
                   bottom: NSLayoutYAxisAnchor, trailing: NSLayoutXAxisAnchor) {
-        
+
         self.top = top
         self.leading = leading
         self.bottom = bottom
         self.trailing = trailing
     }
-    
+
     /**
      Constrains a list of provided edges to another view's anchors with insets.
      At least one edge must be constrained.
@@ -59,54 +59,54 @@ public class LayoutDirectionalEdgeAnchors {
     public func constraint(edges: DirectionalRectEdge = .all,
                            equalTo anchors: LayoutDirectionalEdgeAnchors,
                            constant: DirectionalEdgeInsets = .zero) -> LayoutDirectionalEdgeConstraints {
-        
+
         guard !edges.isEmpty else {
             fatalError("At least one edge must be constrained")
         }
-        
+
         let topConstraint = edges.contains(.top) ? top.constraint(equalTo: anchors.top, constant: constant.top) : nil
         let leadingConstraint = edges.contains(.leading) ? leading.constraint(equalTo: anchors.leading, constant: constant.leading) : nil
         let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(equalTo: anchors.bottom, constant: constant.bottom) : nil
         let trailingConstraint = edges.contains(.trailing) ? trailing.constraint(equalTo: anchors.trailing, constant: constant.trailing) : nil
-        
+
         return LayoutDirectionalEdgeConstraints(top: topConstraint, leading: leadingConstraint, bottom: bottomConstraint, trailing: trailingConstraint)
     }
-    
+
     public func constraint(edges: DirectionalRectEdge = .all,
                            outsideOfOrEqualTo anchors: LayoutDirectionalEdgeAnchors,
                            constant: DirectionalEdgeInsets = .zero) -> LayoutDirectionalEdgeConstraints {
-        
+
         guard !edges.isEmpty else {
             fatalError("At least one edge must be constrained")
         }
-        
+
         let topConstraint = edges.contains(.top) ? top.constraint(lessThanOrEqualTo: anchors.top, constant: constant.top) : nil
         let leadingConstraint = edges.contains(.leading) ? leading.constraint(lessThanOrEqualTo: anchors.leading, constant: constant.leading) : nil
         let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(greaterThanOrEqualTo: anchors.bottom, constant: constant.bottom) : nil
         let trailingConstraint = edges.contains(.trailing) ? trailing.constraint(greaterThanOrEqualTo: anchors.trailing, constant: constant.trailing) : nil
-        
+
         return LayoutDirectionalEdgeConstraints(top: topConstraint, leading: leadingConstraint, bottom: bottomConstraint, trailing: trailingConstraint)
     }
-    
+
     public func constraint(edges: DirectionalRectEdge = .all,
                            insideOfOrEqualTo anchors: LayoutDirectionalEdgeAnchors,
                            constant: DirectionalEdgeInsets = .zero) -> LayoutDirectionalEdgeConstraints {
-        
+
         guard !edges.isEmpty else {
             fatalError("At least one edge must be constrained")
         }
-        
+
         let topConstraint = edges.contains(.top) ? top.constraint(greaterThanOrEqualTo: anchors.top, constant: constant.top) : nil
         let leadingConstraint = edges.contains(.leading) ? leading.constraint(greaterThanOrEqualTo: anchors.leading, constant: constant.leading) : nil
         let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(lessThanOrEqualTo: anchors.bottom, constant: constant.bottom) : nil
         let trailingConstraint = edges.contains(.trailing) ? trailing.constraint(lessThanOrEqualTo: anchors.trailing, constant: constant.trailing) : nil
-        
+
         return LayoutDirectionalEdgeConstraints(top: topConstraint, leading: leadingConstraint, bottom: bottomConstraint, trailing: trailingConstraint)
     }
 }
 
 public extension LayoutGuide {
-    
+
     /// A group of edge layout anchors that can be used to create LayoutEdgeConstraints
     public var directionalEdgeAnchors: LayoutDirectionalEdgeAnchors {
         return LayoutDirectionalEdgeAnchors(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
@@ -114,26 +114,26 @@ public extension LayoutGuide {
 }
 
 public class LayoutDirectionalEdgeConstraints {
-    
+
     /// The top constraint.
     public let top: NSLayoutConstraint?
-    
+
     /// The left constraint.
     public let leading: NSLayoutConstraint?
-    
+
     /// The bottom constraint.
     public let bottom: NSLayoutConstraint?
-    
+
     /// The right constraint.
     public let trailing: NSLayoutConstraint?
-    
+
     internal init(top: NSLayoutConstraint?, leading: NSLayoutConstraint?, bottom: NSLayoutConstraint?, trailing: NSLayoutConstraint?) {
         self.top = top
         self.bottom = bottom
         self.leading = leading
         self.trailing = trailing
     }
-    
+
     /// The agregation of all constants of the constraints
     public var constant: DirectionalEdgeInsets {
         get {
@@ -142,7 +142,7 @@ public class LayoutDirectionalEdgeConstraints {
                                 bottom: bottom?.constant ?? 0,
                                 trailing: trailing?.constant ?? 0)
         }
-        
+
         set {
             top?.constant = newValue.top
             leading?.constant = newValue.leading
@@ -153,9 +153,8 @@ public class LayoutDirectionalEdgeConstraints {
 }
 
 extension LayoutDirectionalEdgeConstraints: LayoutConstraintGroup {
-    
+
     public var constraints: [NSLayoutConstraint] {
         return [top, leading, bottom, trailing].compactMap { $0 }
     }
 }
-

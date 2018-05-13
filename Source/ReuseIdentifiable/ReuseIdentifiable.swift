@@ -24,31 +24,31 @@
 import UIKit
 
 public protocol ReuseIdentifiable: AnyObject {
-    
+
     static var reuseIdentifier: String { get }
 }
 
 public protocol CollectionViewSupplementaryElement: ReuseIdentifiable {
-    
+
     static var supplementaryElementKind: String { get }
 }
 
-extension UITableViewCell : ReuseIdentifiable {
-    
+extension UITableViewCell: ReuseIdentifiable {
+
     public static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
 extension UITableViewHeaderFooterView: ReuseIdentifiable {
-    
+
     public static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
 extension UICollectionReusableView: ReuseIdentifiable {
-    
+
     public static var reuseIdentifier: String {
         return String(describing: self)
     }

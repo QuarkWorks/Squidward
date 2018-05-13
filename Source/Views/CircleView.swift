@@ -24,7 +24,7 @@
 import UIKit
 
 class CircleView: UIView {
-    
+
     override func layoutSubviews() {
         layer.cornerRadius = min(bounds.width, bounds.height) / 2
         layer.masksToBounds = true
@@ -32,7 +32,7 @@ class CircleView: UIView {
 }
 
 class CircleImageView: UIImageView {
-    
+
     override func layoutSubviews() {
         layer.cornerRadius = min(bounds.width, bounds.height) / 2
         layer.masksToBounds = true

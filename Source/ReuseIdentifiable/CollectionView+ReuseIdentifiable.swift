@@ -24,28 +24,28 @@
 import UIKit
 
 extension UICollectionView {
-    
-    func register<T : UICollectionViewCell>(_ cellClass: T.Type) {
+
+    func register<T: UICollectionViewCell>(_ cellClass: T.Type) {
         register(cellClass, forCellWithReuseIdentifier: T.reuseIdentifier)
     }
-    
-    func dequeueReusableCell<T : UICollectionViewCell>(for indexPath: IndexPath) ->  T {
+
+    func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {
         let identifier = T.reuseIdentifier
         guard let cell = dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? T else {
             fatalError("No reusable cell of type \(T.self) is registered with identifier \(identifier) for indexPath \(indexPath)")
         }
-        
+
         return cell
     }
-    
-    public func autoDequeueReusableCell<T : UICollectionViewCell>(for indexPath: IndexPath) -> T {
+
+    public func autoDequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {
         if autoCellRegistry.insert(T.reuseIdentifier).inserted {
             register(T.self)
         }
-        
+
         return dequeueReusableCell(for: indexPath)
     }
-    
+
     private var autoCellRegistry: Set<String> {
         get { return (objc_getAssociatedObject(self, #function) as? Set<String>) ?? [] }
         set { objc_setAssociatedObject(self, #function, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
@@ -53,29 +53,29 @@ extension UICollectionView {
 }
 
 extension UICollectionView {
-    
-    public func registerSupplementaryView<T : UICollectionReusableView>(_ viewClass: T.Type) where T : CollectionViewSupplementaryElement {
+
+    public func registerSupplementaryView<T: UICollectionReusableView>(_ viewClass: T.Type) where T: CollectionViewSupplementaryElement {
         register(viewClass, forSupplementaryViewOfKind: T.supplementaryElementKind, withReuseIdentifier: viewClass.reuseIdentifier)
     }
-    
-    public func dequeueReusableSupplementaryView<T : UICollectionReusableView>(for indexPath: IndexPath) -> T where T : CollectionViewSupplementaryElement {
+
+    public func dequeueReusableSupplementaryView<T: UICollectionReusableView>(for indexPath: IndexPath) -> T where T: CollectionViewSupplementaryElement {
         let identifier = T.reuseIdentifier
         let kind = T.supplementaryElementKind
         guard let cell = dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: identifier, for: indexPath) as? T else {
             fatalError("No supplementary view of type \(T.self) is registered with identifier \(identifier) of kind \(kind)")
         }
-        
+
         return cell
     }
-    
-    public func autoDequeReusableSupplementaryView<T : UICollectionReusableView>(for indexPath: IndexPath) -> T where T : CollectionViewSupplementaryElement {
+
+    public func autoDequeReusableSupplementaryView<T: UICollectionReusableView>(for indexPath: IndexPath) -> T where T: CollectionViewSupplementaryElement {
         if autoReusableSupplementaryViewRegistry.insert(T.reuseIdentifier).inserted {
             registerSupplementaryView(T.self)
         }
-        
+
         return dequeueReusableSupplementaryView(for: indexPath)
     }
-    
+
     private var autoReusableSupplementaryViewRegistry: Set<String> {
         get { return (objc_getAssociatedObject(self, #function) as? Set<String>) ?? [] }
         set { objc_setAssociatedObject(self, #function, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }

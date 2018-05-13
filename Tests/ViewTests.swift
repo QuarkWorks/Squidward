@@ -26,34 +26,34 @@ import UIKit
 import Squidward
 
 class ViewTests: XCTestCase {
-    
+
     func testActionHandlers() {
-        
+
         UIControl.swizzle_sendAction() // sendActions() doesn't work in a testing environment
-        
+
         let button = UIButton()
-        
+
         let exp1 = expectation(description: "Button Click 1")
         button.addHandler(for: .primaryActionTriggered) {
             exp1.fulfill()
         }
-        
+
         let exp2 = expectation(description: "Button Click 2")
         button.addHandler(for: .primaryActionTriggered) {
             exp2.fulfill()
         }
-        
+
         let exp3 = expectation(description: "Button Drag Outsize")
         button.addHandler(for: .touchDragOutside) {
             exp3.fulfill()
         }
-        
+
         button.addHandler(for: .touchCancel) {
-            XCTFail()
+            XCTFail("Should never execute")
         }
-        
+
         button.sendActions(for: [.touchDragOutside, .primaryActionTriggered])
-        
+
         waitForExpectations(timeout: 0, handler: nil)
     }
 }

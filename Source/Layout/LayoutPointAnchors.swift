@@ -30,7 +30,7 @@ public final class LayoutPointAnchors {
 
     /// The yAsis layout anchor.
     internal let yAxis: NSLayoutYAxisAnchor
-    
+
     internal init(xAxis: NSLayoutXAxisAnchor, yAxis: NSLayoutYAxisAnchor) {
         self.xAxis = xAxis
         self.yAxis = yAxis
@@ -57,47 +57,47 @@ public extension LayoutGuide {
     public var centerAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: centerXAnchor, yAxis: centerYAnchor)
     }
-    
+
     /*
         Rect Corner Anchors
     */
-    
+
     public var topLeftAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: leftAnchor, yAxis: topAnchor)
     }
-    
+
     public var topRightAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: rightAnchor, yAxis: topAnchor)
     }
-    
+
     public var bottomLeftAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: leftAnchor, yAxis: bottomAnchor)
     }
-    
+
     public var bottomRightAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: rightAnchor, yAxis: bottomAnchor)
     }
-    
+
     /*
      Directional Rect Corner Anchors
     */
-    
+
     public var topLeadingAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: leadingAnchor, yAxis: topAnchor)
     }
-    
+
     public var topTrailingAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: trailingAnchor, yAxis: topAnchor)
     }
-    
+
     public var bottomLeadingAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: leadingAnchor, yAxis: bottomAnchor)
     }
-    
+
     public var bottomTrailingAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: trailingAnchor, yAxis: bottomAnchor)
     }
-    
+
     /*
      Rect Edge Anchors
     */
@@ -105,15 +105,15 @@ public extension LayoutGuide {
     public var centerLeftAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: leftAnchor, yAxis: centerYAnchor)
     }
-    
+
     public var centerTopAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: centerXAnchor, yAxis: topAnchor)
     }
-    
+
     public var centerRightAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: rightAnchor, yAxis: centerYAnchor)
     }
-    
+
     public var centerBottomAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: centerXAnchor, yAxis: bottomAnchor)
     }
@@ -121,11 +121,11 @@ public extension LayoutGuide {
     /*
      Directional Edge Anchors
     */
-    
+
     public var centerLeadingAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: leadingAnchor, yAxis: centerYAnchor)
     }
-    
+
     public var centerTrailingAnchors: LayoutPointAnchors {
         return LayoutPointAnchors(xAxis: trailingAnchor, yAxis: centerYAnchor)
     }

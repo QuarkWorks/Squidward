@@ -30,7 +30,7 @@ public class LayoutSizeDimensions {
 
     /// The height dimension.
     internal let height: NSLayoutDimension
-    
+
     internal init(width: NSLayoutDimension, height: NSLayoutDimension) {
         self.width = width
         self.height = height
@@ -123,4 +123,3 @@ extension LayoutSizeConstraints: LayoutConstraintGroup {
         return [width, height]
     }
 }
-

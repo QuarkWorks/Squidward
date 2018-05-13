@@ -24,28 +24,28 @@
 import UIKit
 
 public final class LayoutVerticalEdgeAnchors {
-    
+
     /// The top layout anchor.
     internal let top: NSLayoutYAxisAnchor
-    
+
     /// The bottom layout anchor.
     internal let bottom: NSLayoutYAxisAnchor
-    
+
     internal init(top: NSLayoutYAxisAnchor, bottom: NSLayoutYAxisAnchor) {
         self.top = top
         self.bottom = bottom
     }
-    
+
     public func constraint(equalTo anchors: LayoutVerticalEdgeAnchors, constant: VerticalInsets = .zero) -> LayoutVerticalEdgeConstraints {
         return LayoutVerticalEdgeConstraints(top: top.constraint(equalTo: anchors.top, constant: constant.top),
                                         bottom: bottom.constraint(equalTo: anchors.bottom, constant: -constant.bottom))
     }
-    
+
     public func constraint(outsideOfOrEqualTo anchors: LayoutVerticalEdgeAnchors, constant: VerticalInsets = .zero) -> LayoutVerticalEdgeConstraints {
         return LayoutVerticalEdgeConstraints(top: top.constraint(lessThanOrEqualTo: anchors.top, constant: constant.top),
                                          bottom: bottom.constraint(greaterThanOrEqualTo: anchors.bottom, constant: -constant.bottom))
     }
-    
+
     public func constraint(insideOfOrEqualTo anchors: LayoutVerticalEdgeAnchors, constant: VerticalInsets = .zero) -> LayoutVerticalEdgeConstraints {
         return LayoutVerticalEdgeConstraints(top: top.constraint(greaterThanOrEqualTo: anchors.top, constant: constant.top),
                                          bottom: bottom.constraint(lessThanOrEqualTo: anchors.bottom, constant: -constant.bottom))
@@ -53,29 +53,29 @@ public final class LayoutVerticalEdgeAnchors {
 }
 
 extension LayoutGuide {
-    
+
     public var verticalEdgeAnchors: LayoutVerticalEdgeAnchors {
         return LayoutVerticalEdgeAnchors(top: topAnchor, bottom: bottomAnchor)
     }
 }
 
 public final class LayoutVerticalEdgeConstraints {
-    
+
     public let top: NSLayoutConstraint
-    
+
     public let bottom: NSLayoutConstraint
-    
+
     internal init(top: NSLayoutConstraint, bottom: NSLayoutConstraint) {
         self.top = top
         self.bottom = bottom
     }
-    
+
     public var constant: VerticalInsets {
         get {
             return VerticalInsets(top: top.constant,
                                   bottom: -bottom.constant)
         }
-        
+
         set {
             top.constant = newValue.top
             bottom.constant = -newValue.bottom
@@ -84,7 +84,7 @@ public final class LayoutVerticalEdgeConstraints {
 }
 
 extension LayoutVerticalEdgeConstraints: LayoutConstraintGroup {
-    
+
     public var constraints: [NSLayoutConstraint] {
         return [top, bottom]
     }

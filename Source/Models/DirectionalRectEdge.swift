@@ -25,16 +25,16 @@ import UIKit
 
 /// Localized version of UIRectEdge
 public struct DirectionalRectEdge: OptionSet {
-    
+
     public let rawValue: UInt
-    
+
     public static let top = DirectionalRectEdge(rawValue: 1 << 0)
     public static let leading = DirectionalRectEdge(rawValue: 1 << 1)
     public static let bottom = DirectionalRectEdge(rawValue: 1 << 2)
     public static let trailing = DirectionalRectEdge(rawValue: 1 << 3)
-    
+
     public static let all: DirectionalRectEdge = [.top, .leading, .bottom, .trailing]
-    
+
     public init(rawValue: UInt) {
         self.rawValue = rawValue
     }

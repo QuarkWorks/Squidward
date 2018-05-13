@@ -25,54 +25,54 @@ import UIKit
 
 /// Backwards compatable version of `NSDirectionalEdgeInsets`.
 public struct DirectionalEdgeInsets: Equatable {
-    
+
     public static let zero = DirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-    
+
     /// The top constant.
     public var top: CGFloat
-    
+
     /// The leading constant.
     public var leading: CGFloat
-    
+
     /// The bottom constant.
     public var bottom: CGFloat
-    
+
     /// The trailing constant.
     public var trailing: CGFloat
-    
+
     public init(top: CGFloat, leading: CGFloat, bottom: CGFloat, trailing: CGFloat) {
         self.top = top
         self.leading = leading
         self.bottom = bottom
         self.trailing = trailing
     }
-    
+
     public init(horizontal: CGFloat, vertical: CGFloat) {
         self.top = vertical
         self.leading = horizontal
         self.bottom = vertical
         self.trailing = horizontal
     }
-    
+
     public init(all: CGFloat) {
         self.top = all
         self.leading = all
         self.bottom = all
         self.trailing = all
     }
-    
+
     public var horizontalInsets: DirectionalHorizontalInsets {
         get {
             return DirectionalHorizontalInsets(leading: leading,
                                                trailing: trailing)
-            
+
         }
         set {
             self.leading = newValue.leading
             self.trailing = newValue.trailing
         }
     }
-        
+
     public var verticalInsets: VerticalInsets {
         get {
             return VerticalInsets(top: top, bottom: bottom)
@@ -85,20 +85,20 @@ public struct DirectionalEdgeInsets: Equatable {
 }
 
 public struct HorizontalInsets: Equatable {
-    
+
     public static var zero = HorizontalInsets(left: 0.0, right: 0.0)
-    
+
     /// The left constant.
     public var left: CGFloat
-    
+
     /// The right constatn.
     public var right: CGFloat
-    
+
     public init(left: CGFloat, right: CGFloat) {
         self.left = left
         self.right = right
     }
-    
+
     public init(all: CGFloat) {
         self.left = all
         self.right = all
@@ -106,20 +106,20 @@ public struct HorizontalInsets: Equatable {
 }
 
 public struct DirectionalHorizontalInsets: Equatable {
-    
+
     public static var zero = DirectionalHorizontalInsets(leading: 0.0, trailing: 0.0)
-    
+
     /// The leading constant.
     public var leading: CGFloat
-    
+
     /// The trailing constant.
     public var trailing: CGFloat
-    
+
     public init(leading: CGFloat, trailing: CGFloat) {
         self.leading = leading
         self.trailing = trailing
     }
-    
+
     public init(all: CGFloat) {
         self.leading = all
         self.trailing = all
@@ -127,20 +127,20 @@ public struct DirectionalHorizontalInsets: Equatable {
 }
 
 public struct VerticalInsets: Equatable {
-    
+
     public static var zero = VerticalInsets(top: 0.0, bottom: 0.0)
-    
+
     // The top constant.
     public var top: CGFloat
-    
+
     // The bottom constant.
     public var bottom: CGFloat
-    
+
     public init(top: CGFloat, bottom: CGFloat) {
         self.top = top
         self.bottom = bottom
     }
-    
+
     public init(all: CGFloat) {
         self.top = all
         self.bottom = all
@@ -148,15 +148,15 @@ public struct VerticalInsets: Equatable {
 }
 
 public extension UIEdgeInsets {
-    
+
     public init(horizontal: CGFloat, vertical: CGFloat) {
         self.init(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
     }
-    
+
     public init(all: CGFloat) {
         self.init(top: all, left: all, bottom: all, right: all)
     }
-    
+
     public var horizontalInsets: HorizontalInsets {
         get {
             return HorizontalInsets(left: left, right: right)
@@ -166,12 +166,12 @@ public extension UIEdgeInsets {
             self.right = newValue.right
         }
     }
-    
+
     public var verticalInsets: VerticalInsets {
         get {
             return VerticalInsets(top: top, bottom: bottom)
         }
-        
+
         set {
             top = newValue.top
             bottom = newValue.bottom
@@ -180,14 +180,14 @@ public extension UIEdgeInsets {
 }
 
 public extension CGSize {
-    
+
     public init(all: CGFloat) {
         self.init(width: all, height: all)
     }
 }
 
 public extension UIOffset {
-    
+
     public init(all: CGFloat) {
         self.init(horizontal: all, vertical: all)
     }

@@ -36,10 +36,10 @@ public class LayoutEdgeAnchors {
 
     /// The right anchor
     internal let right: NSLayoutXAxisAnchor
-    
+
     internal init(top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor,
-                bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor) {
-        
+                  bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor) {
+
         self.top = top
         self.left = left
         self.bottom = bottom
@@ -63,48 +63,48 @@ public class LayoutEdgeAnchors {
         guard !edges.isEmpty else {
             fatalError("At least one edge must be constrained")
         }
-        
+
         let constraints = LayoutEdgeConstraints(
             top: edges.contains(.top) ? top.constraint(equalTo: anchors.top) : nil,
             left: edges.contains(.left) ? left.constraint(equalTo: anchors.left) : nil,
             bottom: edges.contains(.bottom) ? bottom.constraint(equalTo: anchors.bottom) : nil,
             right: edges.contains(.right) ? right.constraint(equalTo: anchors.right) : nil
         )
-        
+
         constraints.constant = constant
-        
+
         return constraints
     }
-    
+
     public func constraint(edges: UIRectEdge = .all,
                            outsideOfOrEqualTo anchors: LayoutEdgeAnchors,
                            constant: UIEdgeInsets = .zero) -> LayoutEdgeConstraints {
-        
+
         guard !edges.isEmpty else {
             fatalError("At least one edge must be constrained")
         }
-        
+
         let topConstraint = edges.contains(.top) ? top.constraint(lessThanOrEqualTo: anchors.top, constant: constant.top) : nil
         let leftConstraint = edges.contains(.left) ? left.constraint(lessThanOrEqualTo: anchors.left, constant: constant.left) : nil
         let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(greaterThanOrEqualTo: anchors.bottom, constant: -constant.bottom) : nil
         let rightConstraint = edges.contains(.right) ? right.constraint(greaterThanOrEqualTo: anchors.right, constant: -constant.right) : nil
-        
+
         return LayoutEdgeConstraints(top: topConstraint, left: leftConstraint, bottom: bottomConstraint, right: rightConstraint)
     }
-    
+
     public func constraint(edges: UIRectEdge = .all,
                            insideOfOrEqualTo anchors: LayoutEdgeAnchors,
                            constant: UIEdgeInsets = .zero) -> LayoutEdgeConstraints {
-        
+
         guard !edges.isEmpty else {
             fatalError("At least one edge must be constrained")
         }
-        
+
         let topConstraint = edges.contains(.top) ? top.constraint(greaterThanOrEqualTo: anchors.top, constant: constant.top) : nil
         let leftConstraint = edges.contains(.left) ? left.constraint(greaterThanOrEqualTo: anchors.left, constant: constant.left) : nil
         let bottomConstraint = edges.contains(.bottom) ? bottom.constraint(lessThanOrEqualTo: anchors.bottom, constant: -constant.bottom) : nil
         let rightConstraint = edges.contains(.right) ? right.constraint(lessThanOrEqualTo: anchors.right, constant: -constant.right) : nil
-        
+
         return LayoutEdgeConstraints(top: topConstraint, left: leftConstraint, bottom: bottomConstraint, right: rightConstraint)
     }
 }

@@ -24,7 +24,7 @@
 import UIKit
 
 extension UIControl {
-    
+
     /// Adds a handler to be envoked to when a spefic set of control events are triggerd.
     /// Remeber to use `[unkowned self]` when referencing `self` or other targets inside the handler to prevent memory leaks.
     /// The handler is strongly retained by the `UIControl`.
@@ -33,25 +33,25 @@ extension UIControl {
         addTarget(wrapper, action: #selector(ClosureWrapper.invoke), for: controlEvents)
         handlers += [wrapper]
     }
-    
+
     private var handlers: [ClosureWrapper] {
         get {
             return objc_getAssociatedObject(self, #function) as? [ClosureWrapper] ?? []
         }
-        
+
         set {
             return objc_setAssociatedObject(self, #function, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
-    
+
     private class ClosureWrapper {
-        
+
         private let closure: () -> Void
-        
+
         init(_ closure: @escaping () -> Void) {
             self.closure = closure
         }
-        
+
         @objc func invoke () {
             closure()
         }

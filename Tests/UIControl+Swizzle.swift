@@ -26,19 +26,19 @@ import UIKit
 /// Unfortunately, there's an apparent limitation in using `sendActionsForControlEvents` on unit-tests.
 /// To be able to test them, we're now using swizzling to manually invoke the pair target+action.
 extension UIControl {
-    
+
     static func swizzle_sendAction() {
         let originalSelector = #selector(UIControl.sendAction(_:to:for:))
         let swizzledSelector = #selector(UIControl.swizzle_sendAction(_:to:forEvent:))
-        
+
         let originalMethod = class_getInstanceMethod(UIControl.self, originalSelector)!
         let swizzledMethod = class_getInstanceMethod(UIControl.self, swizzledSelector)!
-        
+
         let didAddMethod = class_addMethod(UIControl.self,
                                            originalSelector,
                                            method_getImplementation(swizzledMethod),
                                            method_getTypeEncoding(swizzledMethod))
-        
+
         if didAddMethod {
             class_replaceMethod(UIControl.self,
                                 swizzledSelector,
@@ -48,7 +48,7 @@ extension UIControl {
             method_exchangeImplementations(originalMethod, swizzledMethod)
         }
     }
-    
+
     // MARK: - Method Swizzling
     @objc func swizzle_sendAction(_ action: Selector, to target: AnyObject?, forEvent event: UIEvent?) {
         _ = target?.perform(action, with: self)

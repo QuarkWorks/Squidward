@@ -25,34 +25,34 @@ import UIKit
 
 /// The minimum collection of anchors needed to describe a `UILayoutGuide`
 public protocol LayoutGuide {
-    
+
     /// A directional layout anchor representing the leading edge of the layout guide’s frame.
     var leadingAnchor: NSLayoutXAxisAnchor { get }
-    
+
     /// A directional layout anchor representing the trailing edge of the layout guide’s frame.
     var trailingAnchor: NSLayoutXAxisAnchor { get }
-    
+
     /// A layout anchor representing the left edge of the layout guide’s frame.
     var leftAnchor: NSLayoutXAxisAnchor { get }
-    
+
     /// A layout anchor representing the right edge of the layout guide’s frame.
     var rightAnchor: NSLayoutXAxisAnchor { get }
-    
+
     /// A layout anchor representing the top edge of the layout guide’s frame.
     var topAnchor: NSLayoutYAxisAnchor { get }
-    
+
     /// A layout anchor representing the bottom edge of the layout guide’s frame.
     var bottomAnchor: NSLayoutYAxisAnchor { get }
-    
+
     /// A layout anchor representing the width of the layout guide’s frame.
     var widthAnchor: NSLayoutDimension { get }
-    
+
     /// A layout anchor representing the height of the layout guide’s frame.
     var heightAnchor: NSLayoutDimension { get }
-    
+
     /// A layout anchor representing the horizontal center of the layout guide’s frame.
     var centerXAnchor: NSLayoutXAxisAnchor { get }
-    
+
     /// A layout anchor representing the vertical center of the layout guide’s frame.
     var centerYAnchor: NSLayoutYAxisAnchor { get }
 }
@@ -62,7 +62,7 @@ extension UIView: LayoutGuide { }
 extension UILayoutGuide: LayoutGuide { }
 
 extension UIView {
-    
+
     /// A nil returning wrapper around `safeAreaLayoutGuide` for non iOS 11 builds
     var safeAreaLayoutGuideOrNil: LayoutGuide? {
         if #available(iOS 11.0, *) {
@@ -71,7 +71,7 @@ extension UIView {
             return nil
         }
     }
-    
+
     var safeAreaInstetsOrNil: UIEdgeInsets? {
         if #available(iOS 11.0, *) {
             return safeAreaInsets
@@ -80,4 +80,3 @@ extension UIView {
         }
     }
 }
-

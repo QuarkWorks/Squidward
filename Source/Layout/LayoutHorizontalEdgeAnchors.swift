@@ -24,26 +24,26 @@
 import UIKit
 
 public final class LayoutHorizontalEdgeAnchors {
-    
+
     internal let left: NSLayoutXAxisAnchor
-    
+
     internal let right: NSLayoutXAxisAnchor
-    
+
     internal init(left: NSLayoutXAxisAnchor, right: NSLayoutXAxisAnchor) {
         self.left = left
         self.right = right
     }
-    
+
     public func constraint(equalTo anchors: LayoutHorizontalEdgeAnchors, constant: HorizontalInsets = .zero) -> LayoutHorizontalEdgeConstraints {
         return LayoutHorizontalEdgeConstraints(left: left.constraint(equalTo: anchors.left, constant: constant.left),
                                           right: right.constraint(equalTo: anchors.right, constant: -constant.right))
     }
-    
+
     public func constraint(outsideOfOrEqualTo anchors: LayoutHorizontalEdgeAnchors, constant: HorizontalInsets = .zero) -> LayoutHorizontalEdgeConstraints {
         return LayoutHorizontalEdgeConstraints(left: left.constraint(lessThanOrEqualTo: anchors.left, constant: constant.left),
                                            right: right.constraint(greaterThanOrEqualTo: anchors.right, constant: -constant.right))
     }
-    
+
     public func constraint(insideOfOrEqualTo anchors: LayoutHorizontalEdgeAnchors, constant: HorizontalInsets = .zero) -> LayoutHorizontalEdgeConstraints {
         return LayoutHorizontalEdgeConstraints(left: left.constraint(greaterThanOrEqualTo: anchors.left, constant: constant.left),
                                            right: right.constraint(lessThanOrEqualTo: anchors.right, constant: -constant.right))
@@ -51,29 +51,29 @@ public final class LayoutHorizontalEdgeAnchors {
 }
 
 extension LayoutGuide {
-    
+
     public var horizontalEdgeAnchors: LayoutHorizontalEdgeAnchors {
         return LayoutHorizontalEdgeAnchors(left: leftAnchor, right: rightAnchor)
     }
 }
 
 public final class LayoutHorizontalEdgeConstraints {
-    
+
     public let left: NSLayoutConstraint
-    
+
     public let right: NSLayoutConstraint
-    
+
     internal init(left: NSLayoutConstraint, right: NSLayoutConstraint) {
         self.left = left
         self.right = right
     }
-    
+
     public var constant: HorizontalInsets {
         get {
             return HorizontalInsets(left: left.constant,
                                     right: -right.constant)
         }
-        
+
         set {
             left.constant = newValue.left
             right.constant = -newValue.right
@@ -82,7 +82,7 @@ public final class LayoutHorizontalEdgeConstraints {
 }
 
 extension LayoutHorizontalEdgeConstraints: LayoutConstraintGroup {
-    
+
     public var constraints: [NSLayoutConstraint] {
         return [left, right]
     }
