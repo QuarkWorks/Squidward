@@ -25,10 +25,12 @@ import UIKit
 
 extension UIStackView {
 
+    /// Adds a list of views to the end of the arrangedSubviews array.
     public func addArrangedSubviews(_ subview: UIView, _ additionalSubviews: UIView...) {
         addArrangedSubviews([subview] + additionalSubviews)
     }
 
+    /// Adds a list of views to the end of the arrangedSubviews array.
     public func addArrangedSubviews(_ subviews: [UIView]) {
         subviews.forEach(addArrangedSubview(_:))
     }

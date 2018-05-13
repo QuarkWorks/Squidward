@@ -25,10 +25,12 @@ import UIKit
 
 extension UIView {
 
+    /// Adds a list of views to the end of the receiver’s list of subviews.
     public func addSubviews(_ subview: UIView, _ additionalSubviews: UIView...) {
         addSubviews([subview] + additionalSubviews)
     }
 
+    /// Adds a list of views to the end of the receiver’s list of subviews.
     public func addSubviews(_ subviews: [UIView]) {
         subviews.forEach(addSubview(_:))
     }
@@ -37,5 +39,11 @@ extension UIView {
     /// Returns `self` if it doesn't have a superview.
     public func rootview() -> UIView {
         return superview?.rootview() ?? self
+    }
+
+    /// Walks the view tree downwards and returns all the subviews.
+    /// The result doesn't include `self`.
+    public func allSubviews() -> [UIView] {
+        return subviews.flatMap { $0.allSubviews()}
     }
 }

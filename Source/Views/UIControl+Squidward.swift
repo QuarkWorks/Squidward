@@ -35,13 +35,8 @@ extension UIControl {
     }
 
     private var handlers: [ClosureWrapper] {
-        get {
-            return objc_getAssociatedObject(self, #function) as? [ClosureWrapper] ?? []
-        }
-
-        set {
-            return objc_setAssociatedObject(self, #function, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
-        }
+        get { return objc_getAssociatedObject(self, #function) as? [ClosureWrapper] ?? [] }
+        set { return objc_setAssociatedObject(self, #function, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN) }
     }
 
     private class ClosureWrapper {
