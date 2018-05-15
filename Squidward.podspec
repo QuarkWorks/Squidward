@@ -7,5 +7,5 @@ Pod::Spec.new do |s|
     s.author = "QuarkWorks"
     s.platform = :ios, "9.0"
     s.source = { :git => "https://github.com/QuarkWorks/Squidward.git", :tag => "2.0.0" }
-    s.source_files = "Squidward", "Source/*.{h,m,swift}"
+    s.source_files = "Squidward", "Source/*"
 end
