@@ -36,20 +36,20 @@ public protocol CollectionViewSupplementaryElement: ReuseIdentifiable {
 extension UITableViewCell: ReuseIdentifiable {
 
     public static var reuseIdentifier: String {
-        return String(describing: self)
+        return String(reflecting: self)
     }
 }
 
 extension UITableViewHeaderFooterView: ReuseIdentifiable {
 
     public static var reuseIdentifier: String {
-        return String(describing: self)
+        return String(reflecting: self)
     }
 }
 
 extension UICollectionReusableView: ReuseIdentifiable {
 
     public static var reuseIdentifier: String {
-        return String(describing: self)
+        return String(reflecting: self)
     }
 }
