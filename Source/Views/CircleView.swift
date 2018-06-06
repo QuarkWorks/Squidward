@@ -24,6 +24,7 @@
 import UIKit
 
 /// A custom view where the layers corner radius tries to make a circle
+@IBDesignable
 class CircleView: UIView {
 
     override func layoutSubviews() {
@@ -33,6 +34,7 @@ class CircleView: UIView {
 }
 
 /// A custom image view where the layers corner radius tries to make a circle
+@IBDesignable
 class CircleImageView: UIImageView {
 
     override func layoutSubviews() {
