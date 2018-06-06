@@ -25,9 +25,9 @@ import UIKit
 
 /// A custom view where the layers corner radius tries to make a circle
 @IBDesignable
-class CircleView: UIView {
+public class CircleView: UIView {
 
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         layer.cornerRadius = min(bounds.width, bounds.height) / 2
         layer.masksToBounds = true
     }
@@ -35,9 +35,9 @@ class CircleView: UIView {
 
 /// A custom image view where the layers corner radius tries to make a circle
 @IBDesignable
-class CircleImageView: UIImageView {
+public class CircleImageView: UIImageView {
 
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         layer.cornerRadius = min(bounds.width, bounds.height) / 2
         layer.masksToBounds = true
     }
