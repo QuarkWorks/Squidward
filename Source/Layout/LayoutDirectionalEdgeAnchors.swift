@@ -105,7 +105,7 @@ public class LayoutDirectionalEdgeAnchors {
     }
 }
 
-public extension LayoutGuide {
+extension LayoutGuide {
 
     /// A group of edge layout anchors that can be used to create LayoutEdgeConstraints
     public var directionalEdgeAnchors: LayoutDirectionalEdgeAnchors {

@@ -82,7 +82,7 @@ public class LayoutSizeDimensions {
     }
 }
 
-public extension LayoutGuide {
+extension LayoutGuide {
 
     /// A group of size layout dimensions that can be used to create LayoutSizeConstraints
     public var sizeAnchors: LayoutSizeDimensions {

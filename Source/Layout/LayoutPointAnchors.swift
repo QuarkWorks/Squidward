@@ -51,7 +51,7 @@ public final class LayoutPointAnchors {
     }
 }
 
-public extension LayoutGuide {
+extension LayoutGuide {
 
     /// A group of center layout anchors that can be used to create LayoutCenterConstraints
     public var centerAnchors: LayoutPointAnchors {

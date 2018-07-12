@@ -25,9 +25,11 @@ import UIKit
 
 /// A custom view where the layers corner radius tries to make a circle
 @IBDesignable
-public class CircleView: UIView {
+open class CircleView: UIView {
 
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+
         layer.cornerRadius = min(bounds.width, bounds.height) / 2
         layer.masksToBounds = true
     }
@@ -35,10 +37,46 @@ public class CircleView: UIView {
 
 /// A custom image view where the layers corner radius tries to make a circle
 @IBDesignable
-public class CircleImageView: UIImageView {
+open class CircleImageView: UIImageView {
 
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+
         layer.cornerRadius = min(bounds.width, bounds.height) / 2
         layer.masksToBounds = true
+    }
+}
+
+open class RoundedView: UIView {
+
+    open var cornerMask: UIRectCorner = [] {
+        didSet {
+            guard cornerMask != oldValue else { return }
+            if !cornerMask.isEmpty {
+                layer.masksToBounds = true
+            }
+            setNeedsLayout()
+        }
+    }
+
+    open var cornerMaskRadius: CGFloat = 0.0 {
+        didSet {
+            guard cornerMaskRadius != oldValue else { return }
+            if !cornerMask.isEmpty {
+                layer.masksToBounds = true
+            }
+            setNeedsLayout()
+        }
+    }
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+
+        let mask = CAShapeLayer()
+        mask.path = UIBezierPath(roundedRect: bounds,
+                                 byRoundingCorners: [.topLeft, .topRight],
+                                 cornerRadii: CGSize(width: cornerMaskRadius,
+                                                     height: cornerMaskRadius)).cgPath
+        layer.mask = mask
     }
 }

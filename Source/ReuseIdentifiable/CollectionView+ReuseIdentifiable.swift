@@ -25,11 +25,11 @@ import UIKit
 
 extension UICollectionView {
 
-    func register<T: UICollectionViewCell>(_ cellClass: T.Type) {
+    public func register<T: UICollectionViewCell>(_ cellClass: T.Type) {
         register(cellClass, forCellWithReuseIdentifier: T.reuseIdentifier)
     }
 
-    func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {
+    public func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {
         let identifier = T.reuseIdentifier
         guard let cell = dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? T else {
             fatalError("No reusable cell of type \(T.self) is registered with identifier \(identifier) for indexPath \(indexPath)")

@@ -19,14 +19,14 @@ extension UIColor {
         )
     }
 
-    convenience init(hex: UInt) {
+    public convenience init(hex: UInt) {
         self.init(
             red: (hex >> 16) & 0xFF,
             green: (hex >> 8) & 0xFF,
             blue: hex & 0xFF)
     }
 
-    convenience init?(hex: String) {
+    public convenience init?(hex: String) {
         var string = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
         if string.hasPrefix("#") {

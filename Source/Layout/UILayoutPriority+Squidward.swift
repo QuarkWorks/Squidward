@@ -26,17 +26,17 @@ import UIKit
 extension UILayoutPriority {
 
     /// A very high layout priority that is not required.
-    static var almostRequired: UILayoutPriority {
+    public static var almostRequired: UILayoutPriority {
         return .required - 1
     }
 
     /// Adds a constant to the given layout prioriy.
-    static func + (lhs: UILayoutPriority, rhs: Float) -> UILayoutPriority {
+    public static func + (lhs: UILayoutPriority, rhs: Float) -> UILayoutPriority {
         return UILayoutPriority(rawValue: lhs.rawValue + rhs)
     }
 
     /// Subtracts a constant to the given layout prioriy
-    static func - (lhs: UILayoutPriority, rhs: Float) -> UILayoutPriority {
+    public static func - (lhs: UILayoutPriority, rhs: Float) -> UILayoutPriority {
         return UILayoutPriority(rawValue: lhs.rawValue - rhs)
     }
 }
