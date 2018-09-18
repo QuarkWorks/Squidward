@@ -48,7 +48,7 @@ extension UIView {
     }
 
     /// Returns a safe area insets or nil if not iOS 11.
-    var safeAreaInsetsWrapper: UIEdgeInsets? {
+    public var safeAreaInsetsWrapper: UIEdgeInsets? {
         if #available(iOS 11.0, *) {
             return safeAreaInsets
         }
@@ -57,7 +57,7 @@ extension UIView {
     }
 
     /// Returns a safe area layout guide or nil if not iOS 11.
-    var safeAreaLayoutGuideWrapper: UILayoutGuide? {
+    public var safeAreaLayoutGuideWrapper: UILayoutGuide? {
         if #available(iOS 11.0, *) {
             return safeAreaLayoutGuide
         }
