@@ -44,4 +44,25 @@ extension UIColor {
 
         self.init(hex: UInt(rgbValue))
     }
+
+    public func desaturated(amount: CGFloat) -> UIColor {
+        var hue: CGFloat = 0
+        var brightness: CGFloat = 0
+        var alpha: CGFloat = 0
+        var saturation: CGFloat = 0
+        getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        saturation -= amount
+        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+
+    }
+    public func reducedAlpha(amount: CGFloat) -> UIColor {
+        var hue: CGFloat = 0
+        var brightness: CGFloat = 0
+        var alpha: CGFloat = 0
+        var saturation: CGFloat = 0
+        getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        alpha -= amount
+        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+
+    }
 }

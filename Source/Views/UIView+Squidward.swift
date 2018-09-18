@@ -46,4 +46,22 @@ extension UIView {
     public func allSubviews() -> [UIView] {
         return subviews.flatMap { $0.allSubviews()}
     }
+
+    /// Returns a safe area insets or nil if not iOS 11.
+    var safeAreaInsetsWrapper: UIEdgeInsets? {
+        if #available(iOS 11.0, *) {
+            return safeAreaInsets
+        }
+
+        return nil
+    }
+
+    /// Returns a safe area layout guide or nil if not iOS 11.
+    var safeAreaLayoutGuideWrapper: UILayoutGuide? {
+        if #available(iOS 11.0, *) {
+            return safeAreaLayoutGuide
+        }
+
+        return nil
+    }
 }

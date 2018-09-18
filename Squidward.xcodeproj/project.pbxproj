@@ -20,6 +20,8 @@
 		7744A57D20A7CD240080C055 /* TableView+ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744A57C20A7CD240080C055 /* TableView+ReuseIdentifiable.swift */; };
 		7744A57F20A7CD580080C055 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744A57E20A7CD580080C055 /* ReuseIdentifiable.swift */; };
 		774D0F4320A87F21004AE803 /* CollectionView+ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774D0F4220A87F21004AE803 /* CollectionView+ReuseIdentifiable.swift */; };
+		775193D1215094A50056C5CA /* Arithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775193D0215094A50056C5CA /* Arithmetic.swift */; };
+		775193D6215096F00056C5CA /* ArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775193D5215096F00056C5CA /* ArithmeticTests.swift */; };
 		777820051FC26F4F00C94C2C /* LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777820041FC26F4F00C94C2C /* LayoutGuide.swift */; };
 		777820071FC2741200C94C2C /* DirectionalRectEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777820061FC2741200C94C2C /* DirectionalRectEdge.swift */; };
 		777820091FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777820081FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift */; };
@@ -60,6 +62,8 @@
 		7744A57C20A7CD240080C055 /* TableView+ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+ReuseIdentifiable.swift"; sourceTree = "<group>"; };
 		7744A57E20A7CD580080C055 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		774D0F4220A87F21004AE803 /* CollectionView+ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+ReuseIdentifiable.swift"; sourceTree = "<group>"; };
+		775193D0215094A50056C5CA /* Arithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arithmetic.swift; sourceTree = "<group>"; };
+		775193D5215096F00056C5CA /* ArithmeticTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticTests.swift; sourceTree = "<group>"; };
 		777820041FC26F4F00C94C2C /* LayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutGuide.swift; sourceTree = "<group>"; };
 		777820061FC2741200C94C2C /* DirectionalRectEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalRectEdge.swift; sourceTree = "<group>"; };
 		777820081FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutDirectionalEdgeAnchors.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 			children = (
 				777820061FC2741200C94C2C /* DirectionalRectEdge.swift */,
 				77AAC1C01FD88A6C00A2F652 /* Insets.swift */,
+				775193D0215094A50056C5CA /* Arithmetic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 				7744A57320A79A4D0080C055 /* ViewTests.swift */,
 				7744A57620A79FB00080C055 /* UIControl+Swizzle.swift */,
 				777EAE4C20AC9C8500C1E0F9 /* ReuseIdentifiableTests.swift */,
+				775193D5215096F00056C5CA /* ArithmeticTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -329,6 +335,7 @@
 				777EAE4920AC963000C1E0F9 /* UIImage+Squidward.swift in Sources */,
 				7736E8311FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift in Sources */,
 				7793C6E01F6DBC9400A1D147 /* LayoutConstraintGroup.swift in Sources */,
+				775193D1215094A50056C5CA /* Arithmetic.swift in Sources */,
 				7793C6E21F6DBC9400A1D147 /* LayoutPointAnchors.swift in Sources */,
 				7744A57020A795E10080C055 /* CircleView.swift in Sources */,
 				777EAE4B20AC96C000C1E0F9 /* UIColor+Squidward.swift in Sources */,
@@ -350,6 +357,7 @@
 			files = (
 				7744A57520A79A510080C055 /* ViewTests.swift in Sources */,
 				7793C6DB1F6DBBCC00A1D147 /* LayoutTests.swift in Sources */,
+				775193D6215096F00056C5CA /* ArithmeticTests.swift in Sources */,
 				777EAE4E20AC9C9700C1E0F9 /* ReuseIdentifiableTests.swift in Sources */,
 				7744A57820A79FB40080C055 /* UIControl+Swizzle.swift in Sources */,
 			);
