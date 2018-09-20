@@ -90,7 +90,7 @@ class LayoutTests: XCTestCase {
         let offset = UIOffset(horizontal: 10, vertical: 20)
 
         NSLayoutConstraint.activate([
-            view.centerAnchors.constraint(eqaulTo: superView.centerAnchors, constant: offset).assign(to: &constraint)
+            view.centerAnchors.constraint(equalTo: superView.centerAnchors, constant: offset).assign(to: &constraint)
         ])
 
         XCTAssertEqual(offset, constraint.constant)
@@ -147,7 +147,7 @@ class LayoutTests: XCTestCase {
             view.edgeAnchors.constraint(insideOfOrEqualTo: superView.edgeAnchors, constant: viewInsets),
             otherView.edgeAnchors.constraint(insideOfOrEqualTo: superView.edgeAnchors, constant: otherViewInsets),
 
-            otherView.topLeftAnchors.constraint(eqaulTo: view.bottomRightAnchors)
+            otherView.topLeftAnchors.constraint(equalTo: view.bottomRightAnchors)
         ])
 
         // update view frames

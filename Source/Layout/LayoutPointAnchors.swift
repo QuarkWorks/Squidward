@@ -45,7 +45,7 @@ public final class LayoutPointAnchors {
      - returns: The newly constructed set of deactivated layout center constraints.
 
     */
-    public func constraint(eqaulTo anchors: LayoutPointAnchors, constant: UIOffset = .zero) -> LayoutPointConstraints {
+    public func constraint(equalTo anchors: LayoutPointAnchors, constant: UIOffset = .zero) -> LayoutPointConstraints {
         return LayoutPointConstraints(xAxis: xAxis.constraint(equalTo: anchors.xAxis, constant: constant.horizontal),
                                       yAxis: yAxis.constraint(equalTo: anchors.yAxis, constant: constant.vertical))
     }

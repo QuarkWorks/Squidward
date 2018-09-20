@@ -21,23 +21,15 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-public extension UIImage {
+extension UIScrollView {
 
-    public convenience init(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
-        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+    func scrollToTop(animated: Bool) {
+        setContentOffset(.zero, animated: animated)
+    }
 
-        UIGraphicsBeginImageContext(rect.size)
-
-        let context = UIGraphicsGetCurrentContext()!
-        context.setFillColor(color.cgColor)
-        context.fill(rect)
-
-        let image = UIGraphicsGetImageFromCurrentImageContext()!
-
-        UIGraphicsEndImageContext()
-
-        self.init(cgImage: image.cgImage!)
+    func scrollToBottom(animated: Bool) {
+        setContentOffset(contentOffset, animated: animated)
     }
 }

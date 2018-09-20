@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7736E8311FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736E8301FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift */; };
+		7737CC512150E134000D8307 /* ScrollView+Squidward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7737CC502150E134000D8307 /* ScrollView+Squidward.swift */; };
 		773E730F2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773E730D2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift */; };
 		773E73102047B0B500EA198F /* LayoutVerticalEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773E730E2047B0B500EA198F /* LayoutVerticalEdgeAnchors.swift */; };
 		7744A56A20A790430080C055 /* UIView+Squidward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744A56920A790430080C055 /* UIView+Squidward.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		7736E8301FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutHorizontalEdgeAnchors.swift; sourceTree = "<group>"; };
+		7737CC502150E134000D8307 /* ScrollView+Squidward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+Squidward.swift"; sourceTree = "<group>"; };
 		773E730D2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutDirectionalHorizontalEdgeAnchors.swift; sourceTree = "<group>"; };
 		773E730E2047B0B500EA198F /* LayoutVerticalEdgeAnchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutVerticalEdgeAnchors.swift; sourceTree = "<group>"; };
 		7744A56920A790430080C055 /* UIView+Squidward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Squidward.swift"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				7744A57120A797EC0080C055 /* UIControl+Squidward.swift */,
 				777EAE4820AC963000C1E0F9 /* UIImage+Squidward.swift */,
 				777EAE4A20AC96C000C1E0F9 /* UIColor+Squidward.swift */,
+				7737CC502150E134000D8307 /* ScrollView+Squidward.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				773E730F2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift in Sources */,
 				777820071FC2741200C94C2C /* DirectionalRectEdge.swift in Sources */,
 				7793C6E31F6DBC9400A1D147 /* LayoutSizeDemensions.swift in Sources */,
+				7737CC512150E134000D8307 /* ScrollView+Squidward.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

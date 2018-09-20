@@ -35,6 +35,16 @@ extension UIView {
         subviews.forEach(addSubview(_:))
     }
 
+    /// Adds a list of layout guides to the end of the receiver’s list of layout guides.
+    public func addLayoutGuides(_ layoutGuide: UILayoutGuide, _ additionalLayoutGuides: UILayoutGuide...) {
+        addLayoutGuides([layoutGuide] + additionalLayoutGuides)
+    }
+
+    /// Adds a list of layout guides to the end of the receiver’s list of layout guides.
+    public func addLayoutGuides(_ layoutGuides: [UILayoutGuide]) {
+        layoutGuides.forEach(addLayoutGuide(_:))
+    }
+
     /// Walks the view tree upward until a view without a superview is found.
     /// Returns `self` if it doesn't have a superview.
     public func rootview() -> UIView {
