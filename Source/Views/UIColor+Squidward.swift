@@ -84,7 +84,7 @@ extension UIColor {
         getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
 
         alpha -= amount
-        
+
         return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
     }
 }
