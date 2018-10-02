@@ -70,7 +70,7 @@ public extension LayoutConstraintGroup {
     /**
      Assigns passed in constraint to self. This allows for fluent assignment inside NSLayoutConstraint.activate()
 
-     - parameter constraint: The constraint address that self will be assigned to
+     - parameter constraint: The constraint address that self will be assigned to.
 
      - returns: self
      */
@@ -83,7 +83,7 @@ public extension LayoutConstraintGroup {
     /**
      Assigns passed in constraint to self. This allows for fluent assignment inside NSLayoutConstraint.activate()
 
-     - parameter constraint: The constraint address that self will be assigned to
+     - parameter constraint: The constraint address that self will be assigned to.
 
      - returns: self
      */
@@ -105,18 +105,30 @@ extension NSLayoutConstraint: LayoutConstraintGroup {
 extension NSLayoutConstraint {
 
     /**
+     Activates a list of constraints. This is much more efficient than calling activate one at a time.
+
+     - parameter constraints: The list of constraints to actiavte.
+     - paramater priority: The layout priority all the constraints should be activated at.
+     */
+    public class func activate(_ constraints: [NSLayoutConstraint], at priority: UILayoutPriority) {
+        constraints.forEach { $0.priority = priority }
+        activate(constraints)
+    }
+
+    /**
     Activates a list of constraint groups.
  
-    - parameter constraints: The list of constraint groups.
+    - parameter constraints: The list of constraint groups to activate.
+    - paramater priority: The layout priority all the constraints should be activated at.
     */
-    public class func activate(_ constraints: [LayoutConstraintGroup]) {
-        activate(constraints.flatMap { return $0.constraints })
+    public class func activate(_ constraints: [LayoutConstraintGroup], at priority: UILayoutPriority = .required) {
+        activate(constraints.flatMap { $0.constraints }, at: priority)
     }
 
     /**
     Deactivates a list of constraint groups.
 
-    - parameter constraints: The list of constraint groups.
+    - parameter constraints: The list of constraint groups to deactivate.
      */
     public class func deactivate(_ constraints: [LayoutConstraintGroup]) {
         deactivate(constraints.flatMap { return $0.constraints })
