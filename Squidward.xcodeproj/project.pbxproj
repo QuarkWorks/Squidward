@@ -23,6 +23,7 @@
 		774D0F4320A87F21004AE803 /* CollectionView+ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774D0F4220A87F21004AE803 /* CollectionView+ReuseIdentifiable.swift */; };
 		775193D1215094A50056C5CA /* Arithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775193D0215094A50056C5CA /* Arithmetic.swift */; };
 		775193D6215096F00056C5CA /* ArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775193D5215096F00056C5CA /* ArithmeticTests.swift */; };
+		775F2AF62163C0680038BF34 /* KeyboardFrameChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775F2AF52163C0680038BF34 /* KeyboardFrameChange.swift */; };
 		777820051FC26F4F00C94C2C /* LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777820041FC26F4F00C94C2C /* LayoutGuide.swift */; };
 		777820071FC2741200C94C2C /* DirectionalRectEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777820061FC2741200C94C2C /* DirectionalRectEdge.swift */; };
 		777820091FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777820081FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift */; };
@@ -66,6 +67,7 @@
 		774D0F4220A87F21004AE803 /* CollectionView+ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+ReuseIdentifiable.swift"; sourceTree = "<group>"; };
 		775193D0215094A50056C5CA /* Arithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arithmetic.swift; sourceTree = "<group>"; };
 		775193D5215096F00056C5CA /* ArithmeticTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticTests.swift; sourceTree = "<group>"; };
+		775F2AF52163C0680038BF34 /* KeyboardFrameChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardFrameChange.swift; sourceTree = "<group>"; };
 		777820041FC26F4F00C94C2C /* LayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutGuide.swift; sourceTree = "<group>"; };
 		777820061FC2741200C94C2C /* DirectionalRectEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalRectEdge.swift; sourceTree = "<group>"; };
 		777820081FC2763E00C94C2C /* LayoutDirectionalEdgeAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutDirectionalEdgeAnchors.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				777EAE4820AC963000C1E0F9 /* UIImage+Squidward.swift */,
 				777EAE4A20AC96C000C1E0F9 /* UIColor+Squidward.swift */,
 				7737CC502150E134000D8307 /* ScrollView+Squidward.swift */,
+				775F2AF52163C0680038BF34 /* KeyboardFrameChange.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				7744A57220A797EC0080C055 /* UIControl+Squidward.swift in Sources */,
 				77AAC1C11FD88A6C00A2F652 /* Insets.swift in Sources */,
 				7744A57F20A7CD580080C055 /* ReuseIdentifiable.swift in Sources */,
+				775F2AF62163C0680038BF34 /* KeyboardFrameChange.swift in Sources */,
 				777EAE4920AC963000C1E0F9 /* UIImage+Squidward.swift in Sources */,
 				7736E8311FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift in Sources */,
 				7793C6E01F6DBC9400A1D147 /* LayoutConstraintGroup.swift in Sources */,
