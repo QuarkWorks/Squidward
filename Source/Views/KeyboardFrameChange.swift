@@ -70,7 +70,7 @@ public final class KeyboardFrameChangeObserver: NSObject {
 
     private let notificationCenter: NotificationCenter
 
-    init(notificationCenter: NotificationCenter = .default) {
+    public init(notificationCenter: NotificationCenter = .default) {
         self.notificationCenter = notificationCenter
 
         super.init()
