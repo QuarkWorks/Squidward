@@ -17,7 +17,7 @@ public struct KeyboardFrameChange {
 
     public var animationDurration: TimeInterval
 
-    public var animationCurve: UIView.AnimationCurve
+    public var animationCurve: UIViewAnimationCurve
 
     public func beginFrame(for view: UIView) -> CGRect {
         return view.convert(beginFrame, from: nil)
@@ -48,7 +48,7 @@ extension KeyboardFrameChange {
             let beginFrame = userInfo[UIKeyboardFrameBeginUserInfoKey] as? CGRect,
             let endFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect,
             let animationDurration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval,
-            let animationCurve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as? Int).flatMap(UIView.AnimationCurve.init(rawValue:))
+            let animationCurve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as? Int).flatMap(UIViewAnimationCurve.init(rawValue:))
             else {
                 return nil
         }
