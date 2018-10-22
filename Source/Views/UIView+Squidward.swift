@@ -35,6 +35,15 @@ extension UIView {
         subviews.forEach(addSubview(_:))
     }
 
+    /// Adds a list of views to the end of the receiver’s list of subviews.
+    /// Will also set the `translatesAutoresizingMaskIntoConstraints` for each view to the passed in value.
+    public func addSubviews(_ subviews: [UIView], translatesAutoresizingMaskIntoConstraints: Bool) { // swiftlint:disable:this identifier_name
+        subviews.forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
+            addSubview($0)
+        }
+    }
+
     /// Adds a list of layout guides to the end of the receiver’s list of layout guides.
     public func addLayoutGuides(_ layoutGuide: UILayoutGuide, _ additionalLayoutGuides: UILayoutGuide...) {
         addLayoutGuides([layoutGuide] + additionalLayoutGuides)
