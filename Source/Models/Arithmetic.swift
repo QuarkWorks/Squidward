@@ -17,20 +17,40 @@ public func expectedDistanceToTravel(for velocity: CGFloat, friction: CGFloat = 
     return velocity * (pow(velocity, 2.0) / (2.0 * friction * gravity))
 }
 
-public func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
-    return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
+extension CGPoint {
+    public static func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+        return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
+    }
+
+    public static func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+        return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
+    }
+
+    public static func * (lhs: CGPoint, rhs: CGFloat) -> CGPoint {
+        return CGPoint(x: lhs.x * rhs, y: lhs.y * rhs)
+    }
+
+    public static func / (lhs: CGPoint, rhs: CGFloat) -> CGPoint {
+        return CGPoint(x: lhs.x / rhs, y: lhs.y / rhs)
+    }
 }
 
-public func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
-    return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
-}
+extension CGSize {
+    public static func + (lhs: CGSize, rhs: CGSize) -> CGSize {
+        return CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
+    }
 
-public func * (lhs: CGPoint, rhs: CGFloat) -> CGPoint {
-    return CGPoint(x: lhs.x * rhs, y: lhs.y * rhs)
-}
+    public static func - (lhs: CGSize, rhs: CGSize) -> CGSize {
+        return CGSize(width: lhs.width - rhs.width, height: lhs.height - rhs.height)
+    }
 
-public func / (lhs: CGPoint, rhs: CGFloat) -> CGPoint {
-    return CGPoint(x: lhs.x / rhs, y: lhs.y / rhs)
+    public static func * (lhs: CGSize, rhs: CGFloat) -> CGSize {
+        return CGSize(width: lhs.width * rhs, height: lhs.height * rhs)
+    }
+
+    public static func / (lhs: CGSize, rhs: CGFloat) -> CGSize {
+        return CGSize(width: lhs.width / rhs, height: lhs.height / rhs)
+    }
 }
 
 extension Array where Element == CGPoint {
