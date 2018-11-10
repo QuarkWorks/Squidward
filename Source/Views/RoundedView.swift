@@ -23,41 +23,35 @@
 
 import UIKit
 
-/// A custom view where its layer's corner radius attempts to make a circle.
-/// If a circle can't be made, then a pill is formed.
-@IBDesignable
-open class CircleView: UIView {
+open class RoundedView: UIView {
 
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-
-        layer.cornerRadius = min(bounds.width, bounds.height) / 2
-        layer.masksToBounds = true
+    open var cornerMask: UIRectCorner = .allCorners {
+        didSet {
+            guard cornerMask != oldValue else { return }
+            setNeedsLayout()
+        }
     }
-}
 
-/// A custom image view where its layer's corner radius attempts to make a circle.
-/// If a circle can't be made, then a pill is formed.
-@IBDesignable
-open class CircleImageView: UIImageView {
-
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-
-        layer.cornerRadius = min(bounds.width, bounds.height) / 2
-        layer.masksToBounds = true
+    open var cornerMaskRadius: CGFloat = 0.0 {
+        didSet {
+            guard cornerMaskRadius != oldValue else { return }
+            setNeedsLayout()
+        }
     }
-}
-
-/// A custom image view where its layer's corner radius attempts to make a circle.
-/// If a circle can't be made, then a pill is formed.
-@IBDesignable
-open class CircleButton: UIButton {
 
     open override func layoutSubviews() {
         super.layoutSubviews()
 
-        layer.cornerRadius = min(bounds.width, bounds.height) / 2
-        layer.masksToBounds = true
+        if !cornerMask.isEmpty {
+            layer.masksToBounds = true
+        }
+
+        let mask = CAShapeLayer()
+
+        let cornerRadii = CGSize(width: cornerMaskRadius, height: cornerMaskRadius)
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: cornerMask, cornerRadii: cornerRadii)
+        mask.path = path.cgPath
+
+        layer.mask = mask
     }
 }

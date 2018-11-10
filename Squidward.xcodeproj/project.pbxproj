@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77163BB52197939000FC068A /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77163BB42197939000FC068A /* RoundedView.swift */; };
 		7736E8311FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736E8301FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift */; };
 		7737CC512150E134000D8307 /* ScrollView+Squidward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7737CC502150E134000D8307 /* ScrollView+Squidward.swift */; };
 		773E730F2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773E730D2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		77163BB42197939000FC068A /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		7736E8301FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutHorizontalEdgeAnchors.swift; sourceTree = "<group>"; };
 		7737CC502150E134000D8307 /* ScrollView+Squidward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+Squidward.swift"; sourceTree = "<group>"; };
 		773E730D2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutDirectionalHorizontalEdgeAnchors.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				7737CC502150E134000D8307 /* ScrollView+Squidward.swift */,
 				775F2AF52163C0680038BF34 /* KeyboardFrameChange.swift */,
 				776B809E217FC82C000CAACE /* CGRect+Squidward.swift */,
+				77163BB42197939000FC068A /* RoundedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				7744A56C20A791F80080C055 /* UIStackView+Squidward.swift in Sources */,
 				7793C6E11F6DBC9400A1D147 /* LayoutEdgeAnchors.swift in Sources */,
 				7744A56E20A792630080C055 /* UILayoutPriority+Squidward.swift in Sources */,
+				77163BB52197939000FC068A /* RoundedView.swift in Sources */,
 				773E73102047B0B500EA198F /* LayoutVerticalEdgeAnchors.swift in Sources */,
 				773E730F2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift in Sources */,
 				777820071FC2741200C94C2C /* DirectionalRectEdge.swift in Sources */,
