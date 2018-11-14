@@ -28,13 +28,13 @@ extension UIControl {
     /// Adds a handler to be envoked to when a spefic set of control events are triggerd.
     /// Remeber to use `[unkowned self]` or `[weak self]` when referencing `self` or other targets inside the handler to prevent memory leaks.
     /// The handler is strongly retained by the `UIControl`.
-    public func addHandler(for controlEvents: UIControlEvents, _ handler: @escaping (Any) -> Void) {
+    public func addHandler(for controlEvents: UIControl.Event, _ handler: @escaping (Any) -> Void) {
         let wrapper = ClosureWrapper(handler)
         addTarget(wrapper, action: #selector(ClosureWrapper.invoke), for: controlEvents)
         handlers += [wrapper]
     }
 
-    public func addHandler(for controlEvents: UIControlEvents, _ handler: @escaping () -> Void) {
+    public func addHandler(for controlEvents: UIControl.Event, _ handler: @escaping () -> Void) {
         addHandler(for: controlEvents) { _ in
             handler()
         }

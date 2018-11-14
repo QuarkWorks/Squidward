@@ -32,7 +32,7 @@ public struct KeyboardFrameChange {
 
     public var animationDurration: TimeInterval
 
-    public var animationCurve: UIViewAnimationCurve
+    public var animationCurve: UIView.AnimationCurve
 
     public func beginFrame(for view: UIView) -> CGRect {
         return view.convert(beginFrame, from: nil)
@@ -59,11 +59,11 @@ extension KeyboardFrameChange {
     public init?(notification: Notification) {
         guard
             let userInfo = notification.userInfo,
-            let isLocal = userInfo[UIKeyboardIsLocalUserInfoKey] as? Bool,
-            let beginFrame = userInfo[UIKeyboardFrameBeginUserInfoKey] as? CGRect,
-            let endFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect,
-            let animationDurration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval,
-            let animationCurve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as? Int).flatMap(UIViewAnimationCurve.init(rawValue:))
+            let isLocal = userInfo[UIResponder.keyboardIsLocalUserInfoKey] as? Bool,
+            let beginFrame = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? CGRect,
+            let endFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
+            let animationDurration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval,
+            let animationCurve = (userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? Int).flatMap(UIView.AnimationCurve.init(rawValue:))
             else {
                 return nil
         }
@@ -90,12 +90,12 @@ public final class KeyboardFrameChangeObserver: NSObject {
 
         super.init()
 
-        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: .UIKeyboardDidShow, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: .UIKeyboardWillChangeFrame, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(keyboardDidChangeFrame(_:)), name: .UIKeyboardDidChangeFrame, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(keyboardDidHide(_:)), name: .UIKeyboardDidHide, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardDidChangeFrame(_:)), name: UIResponder.keyboardDidChangeFrameNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardDidHide(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
 
     deinit {
