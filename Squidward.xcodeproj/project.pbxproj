@@ -39,7 +39,14 @@
 		7793C6E11F6DBC9400A1D147 /* LayoutEdgeAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6DD1F6DBC9400A1D147 /* LayoutEdgeAnchors.swift */; };
 		7793C6E21F6DBC9400A1D147 /* LayoutPointAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6DE1F6DBC9400A1D147 /* LayoutPointAnchors.swift */; };
 		7793C6E31F6DBC9400A1D147 /* LayoutSizeDemensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793C6DF1F6DBC9400A1D147 /* LayoutSizeDemensions.swift */; };
-		77AAC1C11FD88A6C00A2F652 /* Insets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AAC1C01FD88A6C00A2F652 /* Insets.swift */; };
+		77957565219CBFDF00A2EA1F /* CGFloatIntializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77957564219CBFDF00A2EA1F /* CGFloatIntializable.swift */; };
+		77957567219CC3E200A2EA1F /* DirectionalEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77957566219CC3E200A2EA1F /* DirectionalEdgeInsets.swift */; };
+		77957569219CC45D00A2EA1F /* NSDirectionalEdgeInsets+Squidward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77957568219CC45D00A2EA1F /* NSDirectionalEdgeInsets+Squidward.swift */; };
+		7795756B219CC4E400A2EA1F /* HorizontalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7795756A219CC4E400A2EA1F /* HorizontalInsets.swift */; };
+		7795756D219CC52800A2EA1F /* DirectionalHorizontalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7795756C219CC52800A2EA1F /* DirectionalHorizontalInsets.swift */; };
+		7795756F219CC54C00A2EA1F /* VerticalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7795756E219CC54C00A2EA1F /* VerticalInsets.swift */; };
+		77957574219CC81400A2EA1F /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77957573219CC81400A2EA1F /* ModelTests.swift */; };
+		77AAC1C11FD88A6C00A2F652 /* UIEdgeInsets+Squidward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AAC1C01FD88A6C00A2F652 /* UIEdgeInsets+Squidward.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +95,14 @@
 		7793C6DD1F6DBC9400A1D147 /* LayoutEdgeAnchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEdgeAnchors.swift; sourceTree = "<group>"; };
 		7793C6DE1F6DBC9400A1D147 /* LayoutPointAnchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutPointAnchors.swift; sourceTree = "<group>"; };
 		7793C6DF1F6DBC9400A1D147 /* LayoutSizeDemensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutSizeDemensions.swift; sourceTree = "<group>"; };
-		77AAC1C01FD88A6C00A2F652 /* Insets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insets.swift; sourceTree = "<group>"; };
+		77957564219CBFDF00A2EA1F /* CGFloatIntializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatIntializable.swift; sourceTree = "<group>"; };
+		77957566219CC3E200A2EA1F /* DirectionalEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalEdgeInsets.swift; sourceTree = "<group>"; };
+		77957568219CC45D00A2EA1F /* NSDirectionalEdgeInsets+Squidward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDirectionalEdgeInsets+Squidward.swift"; sourceTree = "<group>"; };
+		7795756A219CC4E400A2EA1F /* HorizontalInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalInsets.swift; sourceTree = "<group>"; };
+		7795756C219CC52800A2EA1F /* DirectionalHorizontalInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalHorizontalInsets.swift; sourceTree = "<group>"; };
+		7795756E219CC54C00A2EA1F /* VerticalInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalInsets.swift; sourceTree = "<group>"; };
+		77957573219CC81400A2EA1F /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		77AAC1C01FD88A6C00A2F652 /* UIEdgeInsets+Squidward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Squidward.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,9 +144,15 @@
 		7744A56520A78F670080C055 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				777820061FC2741200C94C2C /* DirectionalRectEdge.swift */,
-				77AAC1C01FD88A6C00A2F652 /* Insets.swift */,
 				775193D0215094A50056C5CA /* Arithmetic.swift */,
+				77957564219CBFDF00A2EA1F /* CGFloatIntializable.swift */,
+				77957566219CC3E200A2EA1F /* DirectionalEdgeInsets.swift */,
+				7795756C219CC52800A2EA1F /* DirectionalHorizontalInsets.swift */,
+				777820061FC2741200C94C2C /* DirectionalRectEdge.swift */,
+				7795756A219CC4E400A2EA1F /* HorizontalInsets.swift */,
+				77957568219CC45D00A2EA1F /* NSDirectionalEdgeInsets+Squidward.swift */,
+				77AAC1C01FD88A6C00A2F652 /* UIEdgeInsets+Squidward.swift */,
+				7795756E219CC54C00A2EA1F /* VerticalInsets.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,6 +224,7 @@
 				7744A57620A79FB00080C055 /* UIControl+Swizzle.swift */,
 				777EAE4C20AC9C8500C1E0F9 /* ReuseIdentifiableTests.swift */,
 				775193D5215096F00056C5CA /* ArithmeticTests.swift */,
+				77957573219CC81400A2EA1F /* ModelTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -341,13 +362,16 @@
 				777820051FC26F4F00C94C2C /* LayoutGuide.swift in Sources */,
 				7744A56A20A790430080C055 /* UIView+Squidward.swift in Sources */,
 				774D0F4320A87F21004AE803 /* CollectionView+ReuseIdentifiable.swift in Sources */,
+				77957569219CC45D00A2EA1F /* NSDirectionalEdgeInsets+Squidward.swift in Sources */,
 				7744A57220A797EC0080C055 /* UIControl+Squidward.swift in Sources */,
-				77AAC1C11FD88A6C00A2F652 /* Insets.swift in Sources */,
+				77957565219CBFDF00A2EA1F /* CGFloatIntializable.swift in Sources */,
+				77AAC1C11FD88A6C00A2F652 /* UIEdgeInsets+Squidward.swift in Sources */,
 				7744A57F20A7CD580080C055 /* ReuseIdentifiable.swift in Sources */,
 				775F2AF62163C0680038BF34 /* KeyboardFrameChange.swift in Sources */,
 				777EAE4920AC963000C1E0F9 /* UIImage+Squidward.swift in Sources */,
 				7736E8311FD7D3FF0030979D /* LayoutHorizontalEdgeAnchors.swift in Sources */,
 				776B809F217FC82C000CAACE /* CGRect+Squidward.swift in Sources */,
+				77957567219CC3E200A2EA1F /* DirectionalEdgeInsets.swift in Sources */,
 				7793C6E01F6DBC9400A1D147 /* LayoutConstraintGroup.swift in Sources */,
 				775193D1215094A50056C5CA /* Arithmetic.swift in Sources */,
 				7793C6E21F6DBC9400A1D147 /* LayoutPointAnchors.swift in Sources */,
@@ -357,13 +381,16 @@
 				7744A57D20A7CD240080C055 /* TableView+ReuseIdentifiable.swift in Sources */,
 				7744A56C20A791F80080C055 /* UIStackView+Squidward.swift in Sources */,
 				7793C6E11F6DBC9400A1D147 /* LayoutEdgeAnchors.swift in Sources */,
+				7795756D219CC52800A2EA1F /* DirectionalHorizontalInsets.swift in Sources */,
 				7744A56E20A792630080C055 /* UILayoutPriority+Squidward.swift in Sources */,
 				77163BB52197939000FC068A /* RoundedView.swift in Sources */,
 				773E73102047B0B500EA198F /* LayoutVerticalEdgeAnchors.swift in Sources */,
+				7795756B219CC4E400A2EA1F /* HorizontalInsets.swift in Sources */,
 				773E730F2047B0B500EA198F /* LayoutDirectionalHorizontalEdgeAnchors.swift in Sources */,
 				777820071FC2741200C94C2C /* DirectionalRectEdge.swift in Sources */,
 				7793C6E31F6DBC9400A1D147 /* LayoutSizeDemensions.swift in Sources */,
 				7737CC512150E134000D8307 /* ScrollView+Squidward.swift in Sources */,
+				7795756F219CC54C00A2EA1F /* VerticalInsets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +401,7 @@
 				7744A57520A79A510080C055 /* ViewTests.swift in Sources */,
 				7793C6DB1F6DBBCC00A1D147 /* LayoutTests.swift in Sources */,
 				775193D6215096F00056C5CA /* ArithmeticTests.swift in Sources */,
+				77957574219CC81400A2EA1F /* ModelTests.swift in Sources */,
 				777EAE4E20AC9C9700C1E0F9 /* ReuseIdentifiableTests.swift in Sources */,
 				7744A57820A79FB40080C055 /* UIControl+Swizzle.swift in Sources */,
 			);
